@@ -1,0 +1,117 @@
+body {
+    font-family: sans-serif;
+}
+.boss-container {
+    margin-top:1.75rem;
+}
+.boss-head-container {
+    background-color: rgba(0,0,0,0.65);
+    color:#fff;
+    margin: 0;
+    padding: .75rem 1.5rem;
+    font-size:1.75rem;
+}
+.boss-easy {
+    background-color: #beefbe;
+}
+.boss-middle {
+    background-color: #efefbe;
+}
+.boss-hard {
+    background-color: #efbebebe;
+}
+.boss-only {
+    background-color: #cecece;
+}
+.boss-content-container {
+    padding:1.5rem;
+    padding-top:0rem;
+}
+.prop-switch {
+    border-radius:0.25rem;
+    padding: 0.25rem;
+    color:#fff;
+}
+.prop-sleep {
+    background-color: darkolivegreen;
+}
+.prop-knockback {
+    background-color: darkred;
+}
+.prop-ice {
+    background-color: darkslateblue;
+}
+.prop-switch-highlight {
+    font-weight: bold;
+}
+/* nav */
+nav > a {
+    margin-right:1.5rem;
+    text-decoration: none;
+    display:inline-block;
+    font-size:1.75rem;
+    background-color: purple;
+    color:#fff;
+    padding:.7rem 1.5rem;
+}
+nav > a:hover {
+    background-color: gray;
+}
+/* material index */
+.material-index {
+    display: grid;
+    grid-template: 1fr auto / repeat(5, calc(20% - 1px));
+    font-size:1.15rem;
+    max-width:800px;
+    margin:1.6rem 1.2rem;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    padding: 1px 0 1px 1px;
+    background-color: #ccc;
+}
+.hidden {
+    display: none;
+}
+.material-index-header, .material-index-content {
+    justify-content: center;
+    word-wrap: break-word;
+    padding: .2rem .3rem;
+    box-sizing: border-box;
+}
+.material-index-header {
+    color: #fff;
+}
+/*---- Material Index, but COLORS */
+.material-index-header-lv1 {
+    background-color: #303030;
+ }
+.material-index-header-lv2 {
+    background-color: darkgreen;
+ }
+.material-index-header-lv3 {
+    background-color: darkred;
+ }
+.material-index-header-lv4 {
+    background-color: #655500;
+ }
+.material-index-header-lv5 {
+    background-color: darkviolet;
+ }
+ .material-index-lv1 {
+     background-color: whitesmoke;
+ }
+ .material-index-lv2 {
+     background-color: palegreen;
+ }
+ .material-index-lv3 {
+     background-color: lightsalmon;
+ }
+ .material-index-lv4 {
+     background-color: gold;
+ }
+ .material-index-lv5 {
+     background-color: violet;
+ }
+ .material-index-content > img {
+     max-width: 100%;
+ }
