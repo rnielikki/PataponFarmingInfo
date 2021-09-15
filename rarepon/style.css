@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin:0;padding:0;
+}
+body {
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+    color:#000;
+}
+.rarepon-wrapper {
+    width:100%;
+    min-width: 750px;
+    position: relative;
+}
+.rarepon-wrapper img {
+    width:100%;
+    max-width: 1920px;
+}
+.rarepon-link {
+    /*keep width height 100px to the original image*/
+    width:5.208%;
+    height:9.259%;
+
+    border-radius: 50%;
+    background-color: rgba(255,0,0,0.25);
+    position: absolute;
+    cursor:pointer;
+    border: 5px solid transparent;
+    text-decoration: none;
+    text-align: center;
+}
+.rarepon-link:hover, .rarepon-link:focus {
+    background-color: rgba(255,255,255,0.5);
+    border-color:white;
+}
+.rarepon-link p {
+    background-color: rgba(255,255,255,0.5);
+    color:#000;
+    margin: 0;
+    position:absolute;
+    bottom:0;
+    bottom:0;
+    padding:0.15rem;
+    font-weight: bold;
+    border-radius:10px;
+}
+.rarepon-link:hover p, .rarepon-link:focus p{
+    background-color: rgba(0,0,0,0.5);
+    color:#fff;
+}
+/* rarepon class icon */
+.rarepon-class {
+    position: absolute;
+    top:0;
+    left:0;
+    width:6.51%;
+    height:11.1%;
+    border:5px solid rgba(0,255,255,0.5);
+    background-size: calc(100% + 5px);
+}
+.rarepon-class::after {
+    content:"";
+    position: absolute;
+    width:100%; height:100%; top:0;left:0;
+    z-index:2;
+    background-color:rgba(0,0,255,0.25);
+    cursor:pointer;
+}
+.rarepon-class:hover::after {
+    background-color:rgba(255,255,255,0.65);
+}
+.rarepon-class-name {
+    position: absolute;
+    top:0.9%;
+    left:6.51%;
+    width:36.719%;
+    height:8.33%;
+    margin:0;
+    color:white;
+    text-align: center;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rarepon-class-name span {
+    background-color: black;
+}
+/* MODAL */
+.modal-background {
+    background-color: rgba(0,0,0,0.65);
+    z-index: 5;
+    position: absolute;
+    top:0;left:0;right:0;bottom:0;
+}
+.modal {
+    position: absolute;
+    background-color: #fff;
+    z-index: 6;
+}
+.class-modal {
+    min-width: 750px;
+    overflow: auto;
+}
+.class-modal-container {
+    width:100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.class-modal-container > a {
+    text-align: center;
+    display: inline-block;
+    padding:.75rem .5rem;
+    border:5px solid transparent;
+}
+.class-modal-container > a:hover {
+    cursor: pointer;
+}
+.class-modal-container > a > p{
+    margin: 0;
+    font-weight: bold;
+}
+.class-modal-container > a > img {
+    width:75px;
+    height:75px;
+}
+/* CLASS COLOR START */
+.class-style-yaripon {
+    background-color: #c0ffc0;
+}
+.class-style-tatepon {
+    background-color: #c0c0ff;
+}
+.class-style-yumipon {
+    background-color: #fff0c0;
+}
+.class-style-kibapon {
+    background-color: #ffc0ff;
+}
+.class-style-toripon {
+    background-color: #afdeff;
+}
+.class-style-dekapon {
+    background-color: #ffd0d0;
+}
+.class-style-robopon {
+    background-color: #d0b0ff;
+}
+.class-style-megapon {
+    background-color: #f0f0a0;
+}
+.class-style-mahopon {
+    background-color: #e0b0ff;
+}
+.class-style:hover, .class-style:active, .class-style:focus {
+    background-color: white;
+    border-color:#ccc;
+}
+/* CLASS COLOR END */

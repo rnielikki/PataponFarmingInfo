@@ -8,6 +8,7 @@ window.addEventListener("load",async function(){
     let navFrag = document.createDocumentFragment();
     let body = document.createDocumentFragment();
     let materialIndexElem = document.querySelector(".material-index");
+    let activated = false;
 
     for(let material of Object.keys(data)){
         let block = appendElementWithText(material, navFrag, "material", "a");
@@ -21,6 +22,7 @@ window.addEventListener("load",async function(){
         let materialData = data[material];
         let bossData = materialData.Boss;
 
+        initializeMaterialIndexes();
         addMaterialIndex(material, materialData.Items);
 
         for(let boss of Object.keys(bossData)){
@@ -30,15 +32,25 @@ window.addEventListener("load",async function(){
         contentRoot.appendChild(body);
     }
     
+    function initializeMaterialIndexes() {
+        for(let i=0;i<5;i++) {
+            let img = materialInfoElems[i].querySelector("img");
+            img.onload = () => img.classList.remove("hidden");
+        }
+    }
+    
     function addMaterialIndex(materialType, materialArray) {
-        //Hide until the image and text is fully loaded, to avoid confusion
-        materialIndexElem.classList.add("hidden");
+        if(!activated) {
+            materialIndexElem.classList.remove("hidden");
+            activated = true;
+        }
         for(let i=0;i<5;i++) {
             let materialInfoElem = materialInfoElems[i];
-            materialInfoElem.querySelector("img").src = `materials/${materialType}/${i}.png`;
+            let img = materialInfoElem.querySelector("img");
+            img.classList.add("hidden");
+            img.src = `materials/${materialType}/${i}.png`;
             materialInfoElem.querySelector(".material-index-content-name").textContent = materialArray[i];
         }
-        materialIndexElem.classList.remove("hidden");
     }
 
     function addContent(bossName, content){

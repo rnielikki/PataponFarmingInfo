@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./rarepon.js">
+    </script>
+    <script>
+        function setRatioOnError() {
+            let target = document.querySelector(".rarepon-wrapper");
+            setRatio();
+            window.addEventListener("resize", setRatio);
+            function setRatio() {
+                target.style.height = (target.getBoundingClientRect().width * 1080/1920) + "px";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="rarepon-wrapper">
+        <a class="rarepon-class" href="#" title="Click to select Rarepon class"></a>
+        <div class="rarepon-class-name">
+            <span>ENABLE JS PLZ</span>
+        </div>
+        <img src="rarepons.jpg" onerror="setRatioOnError()" alt="">
+    </div>
+</body>
+</html>

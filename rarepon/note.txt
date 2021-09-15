@@ -1,0 +1,14 @@
+Mateiral1: RareponLevel/MaterialLevel
+Mateiral2: RareponLevel/MaterialLevel
+Material3: (RareponLevel - 2)/MaterialLevel 
+Material4: (RareponLevel - 5)/MaterialLevel
+
+
+Material 3: Requirement start level 3
+Material 4: Requirement starts level 6
+
+* THEY ARE ROUNDED UP. * e.g. 4/3 results 2 requirements
+
+Kaching Calc:
+
+Rarepon[RareponName].Kaching * RareponLevel * Class.Kaching
