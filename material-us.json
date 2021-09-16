@@ -1,0 +1,42 @@
+{
+    "Metal":{
+        "displayName":"Mineral",
+        "value":["Stone","Hard Iron","Titanium Ore","Mithril","Adamantite"]
+    },
+    "Bone":{
+        "displayName":"Bone",
+        "value":["Mudada Bone","Gashirin Bone","Dodeka Bone","Ottama Bone","Demon Bone"]
+    },
+    "Fang":{
+        "displayName":"Fang",
+        "value":["Kuneri Fang","Itete Fang","Gizaza Fang","Nazozo Fang","Demon Fang"]
+    },
+    "Tree":{
+        "displayName":"Tree",
+        "value":["Wood Branch","Cherry Tree","Hinoki","Super Cedar","Bowtie Tree"]
+    },
+    "Meat":{
+        "displayName": "Meat",
+        "value":["Cafeteria Meat","Tender Meat","Succulent Meat","Mystery Meat","Demon Meat"]
+    },
+    "Hide":{
+        "displayName": "Hide",
+        "value":["Berara Hide","Gotsutsu Hide","Subebe Hide","Mezura Hide","Demon Hide"]
+    },
+    "Vegetable":{
+        "displayName":"Vegetable",
+        "value":["Eyeball Cabbage","Blood Carrot","Predator Pumpkin","Moor Morel","Guddorian"]
+    },
+    "Seed":{
+        "displayName":"Seed",
+        "value":["Kasu Seed","Yoka Seed","Deka Seed","Bibi Seed","Mater Seed"]
+    },
+    "Liquid":{
+        "displayName": "Juice",
+        "value":["Familiar Juice","Hot Juice","Cold Juice","Rainbow Juice","Demon Juice"]
+    },
+    "Alloy":{
+        "displayName":"Alloy",
+        "value":["Sloppy Alloy","Hard Alloy","Awesome Alloy","Magic Alloy","Demon's Ore"]
+    }
+}

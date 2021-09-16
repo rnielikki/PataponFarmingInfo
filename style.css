@@ -115,3 +115,20 @@ nav > a:hover {
  .material-index-content > img {
      max-width: 100%;
  }
+ /*language*/
+ .lang {
+     position: fixed;
+     bottom:0;right:0;
+     padding: .5rem 0;
+ }
+ .lang a {
+     background-color: #9dc9ff;
+     color:#000;
+     text-decoration: none;
+     font-size:1.25rem;
+     padding:.5rem .75rem;
+ }
+ .lang a:hover{
+     background-color: #000;
+     color:#ccc;
+ }

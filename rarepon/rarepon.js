@@ -1,5 +1,21 @@
 window.addEventListener("load",async function(){
-    let data = await fetch("rarepon.json").then(res => res.json());
+    let region = (function(){
+        let region = (new URLSearchParams(window.location.search)).get('region');
+        switch(region){
+            case "eu":
+            case "us":
+                return region;
+            default:
+                //I'll ask it later how to check if it's from EU?
+                return "eu";
+        }
+    })();
+
+    let [data, materialData] =
+        await Promise.all(
+            [fetch("rarepon.json").then(res => res.json()),
+            fetch(`../material-${region}.json`).then(res => res.json())]
+        )
 
     // ------ Size Info
     //All original coord data are on pixel coord from this image size - even if the image size changed, this shouldn't be changed as long as the position data don't changed
@@ -61,6 +77,7 @@ window.addEventListener("load",async function(){
     //-------------------- Rarepons
     let rarepons = data.Rarepon;
     let imageWrapper = document.querySelector(".rarepon-wrapper");
+    let rareponTemplate = await fetch("./template.html").then(res => res.text()).then(res => (new DOMParser()).parseFromString(res, 'text/html').body.firstElementChild);
 
     for(var rarepon of Object.keys(rarepons)){
         initializeCoordMap(rarepon);
@@ -76,38 +93,82 @@ window.addEventListener("load",async function(){
         a.style.width = sizeInPercent[0];
         a.style.height = sizeInPercent[1];
         a.classList.add("rarepon-link");
-        a.onclick = () => console.log(getLevelMaterial(rarepon));
+
+        a.onclick = () => openModal(0, 0, -1, -1, fillRareponTemplateData());
         
         let label = document.createElement("p");
         label.textContent = rarepon;
         a.appendChild(label);
         
         imageWrapper.appendChild(a);
+        
+        function fillRareponTemplateData(){
+            let template = rareponTemplate.cloneNode(true);
+            let rareponResultData = getLevelMaterial(rarepon);
+            let currentRareponData = rareponResultData[0];
+            let rememberedElements = new Map();
+            let allInfoMeta = Object.keys(rareponResultData[0]);
+           
+           template.querySelector(".rarepon-modal-title").textContent = rarepon;
+
+            for(let materialNumber = 1;materialNumber < 5;materialNumber++) {
+                let matNameIndex = "Material"+(materialNumber);
+                let matGroup = currentClassData[matNameIndex];
+                let matLevel = rarepons[rarepon].Material[matNameIndex];
+                let matName = materialData[matGroup].value[matLevel-1];
+
+                initAndFillInfoLine(template.querySelector("#material-"+matNameIndex), matName, currentRareponData[matNameIndex], matNameIndex, matLevel);
+            }
+            initAndFillInfoLine(template.querySelector("#material-KaChing"), "Ka-Ching", currentRareponData.KaChing, "KaChing");
+            let scale = template.querySelector("#scale");
+            let levelStatus = template.querySelector("#level");
+            scale.addEventListener("change", onRangeChanged)
+
+            return template;
+
+            function initAndFillInfoLine(materialInfoLine, label, val, key, materialLevel = null){
+                if(materialLevel !== null) {
+                    materialInfoLine.classList.add("material-type"+materialLevel);
+                }
+                materialInfoLine.querySelector(".rarepon-material-label").textContent = label;
+                rememberedElements.set(key, materialInfoLine.querySelector(".rarepon-material-value"));
+               fillInfoLine(key, val);
+            }
+            function fillInfoLine(indexName, val){
+                rememberedElements.get(indexName).textContent = val;
+            }
+
+            function onRangeChanged() {
+                let val = scale.value;
+                levelStatus.textContent = val;
+                let currentRareponData = rareponResultData[val-1];
+                for(let info of allInfoMeta) {
+                    fillInfoLine(info, currentRareponData[info]);
+                }
+            }
+        }
     }
     function getLevelMaterial(rarepon) {
         let rareponData = rarepons[rarepon];
-        let rareponMaterialData = rareponData.Material;
+        let rareponMaterialData = rarepons[rarepon].Material;
         let rareponKaChing = rareponData.KaChing;
         let materialAmountData = new Array(10);
         for(let i = 0; i < 10; i++)
         {
             let level = i + 1;
             //rarepon level : i
-            //material level: rareponData.MaterialX
-            materialAmountData[i] = {
-                "Amount": {
-                    "Material1": calculateAmount(level, rareponMaterialData.Material1),
-                    "Material2": calculateAmount(level, rareponMaterialData.Material2),
-                    "Material3": calculateAmount(level, rareponMaterialData.Material3, 2),
-                    "Material4": calculateAmount(level, rareponMaterialData.Material4, 5),
-                },
-                "KaChing": level * currentClassData.KaChing * rareponKaChing
-            }
+            //material level: rareponMaterialData.MaterialX
+            let amountData = {
+                "KaChing": level * currentClassData.KaChing * rareponKaChing,
+                "Material1": calculateAmount(level, rareponMaterialData.Material1),
+                "Material2": calculateAmount(level, rareponMaterialData.Material2),
+                "Material3": calculateAmount(level, rareponMaterialData.Material3, 2),
+                "Material4": calculateAmount(level, rareponMaterialData.Material4, 5)
+            };
+            materialAmountData[i] = amountData;
         }
-        return {
-            "Levels": rareponMaterialData,
-            "Amounts": materialAmountData
-        }
+        return materialAmountData;
+
         //startLevel starts from 0, not 1 
         function calculateAmount(rareponLevel, materialLevel, startLevel = 0) {
             let res = Math.ceil((rareponLevel - startLevel)/materialLevel);

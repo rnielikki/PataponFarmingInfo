@@ -1,219 +1,182 @@
 {
-    "Metal":{
-      "Items":["Stone","Hard Iron","Titanium Ore","Mytheerial","Adamanman"],
-      "Boss":{
-        "Dodonga":{
-          "difficulty":"easy",
-          "weakness": "knockback",
-          "sleep": true,
-          "knockback": true,
-          "ice":true,
-          "nostagger": "Roar (>= Lv10)",
-          "thunder":false
-        },
-        "Majidonga":{
-          "difficulty":"middle",
-          "weakness": "knockback",
-          "sleep": true,
-          "knockback": true,
-          "ice": true,
-          "thunder":false,
-          "nostagger": "Roar",
-          "note": "Don't try to kill too slowly. Hatapon is damaged from Roar."
-        },
-        "Kacchindonga":{
-          "difficulty":"hard",
-          "weakness": "knockback",
-          "sleep": true,
-          "knockback": true,
-          "ice": false,
-          "nostagger": "Roar",
-          "thunder":false,
-          "note": "Don't try to kill too slowly. Hatapon is damaged from Roar. Chakachaka command doesn't work well with Hatapon."
-        }
-      }
+  "Metal": {
+    "Dodonga": {
+      "difficulty": "easy",
+      "weakness": "knockback",
+      "sleep": true,
+      "knockback": true,
+      "ice": true,
+      "nostagger": "Roar (>= Lv10)",
+      "thunder": false
     },
-    "Bone": {
-      "Items":["Mudada Bone","Gashirin Bone","Dodeka Bone","Ottama Bone","Demon Bone"],
-      "Boss":{
-        "Mochichichi":{
-          "difficulty":"easy",
-          "weakness": null,
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "thunder":false,
-          "note": "When the health cut is enough, they can be 100% staggered (with level 10 tree yumipon * 6) with ponpon. In this case, you may not need to dodge the gas but continue attack. If you stagger with Yumipons, check wind direction to see if the arrows hits. Dodge when headwind blows."
-        },
-        "Fenicchi":
-        {
-          "difficulty":"hard",
-          "weakness": "ice",
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "thunder":false,
-          "note": "When the health cut is enough, they can be 100% staggered (with level 10 tree yumipon * 6) with ponpon. In this case, you may not need to dodge the gas but continue attack. If you stagger with Yumipons, check wind direction to see if the arrows hits. Dodge when headwind blows. Keep mind that it deals much more damage than Mochichichi, so be careful."
-        }
-      }
+    "Majidonga": {
+      "difficulty": "middle",
+      "weakness": "knockback",
+      "sleep": true,
+      "knockback": true,
+      "ice": true,
+      "thunder": false,
+      "nostagger": "Roar",
+      "note": "Don't try to kill too slowly. Hatapon is damaged from Roar."
     },
-    "Fang":{
-      "Items":["Kuneri Fang","Itete Fang","Gizaza Fang","Nazozo Fang","Demon Fang"],
-      "Boss":{
-         "Centura":{
-          "difficulty":"easy",
-          "weakness": "fire",
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "nostagger": "Tail slide (>= Lv10)",
-          "thunder":false,
-          "note": "Even they're weak against fire, they can be frozen easily. When they're frozen, they cannot attack."
-        },
-        "Darantula":
-        {
-          "difficulty":"hard",
-          "weakness": "fire",
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "thunder":false,
-          "nostagger": "Tail slide"
-        }
-      }
-    },
-    "Tree":{
-      "Items":["Banal Branch","Cherry Tree","Hinoki","Super Cedar","Bowtie Tree"],
-      "Boss":{
-        "Dogaeen":
-        {
-          "difficulty":"only",
-          "weakness": "knockback",
-          "sleep": false,
-          "knockback": true,
-          "ice": true,
-          "nostagger": "Body slam",
-          "thunder":true,
-          "note": "Although the Wiki said that Body slam is dangerous to stagger, it's the only move that cannot be staggered - if you bring full stagger team, they use body slam much more than other moves."
-        }
-      }
-    },
-    "Meat":{
-      "Items":["Leather Meat","Tender Meat","Dream Meat","Mystery Meat","Demon Steak"],
-      "Boss":{
-        "Manboth":{
-          "difficulty":"easy",
-          "weakness": "fire",
-          "sleep": true,
-          "knockback": false,
-          "ice": false,
-          "thunder":false,
-          "note": "(Lvl 10 or more) At the end of the phase, it moves back in many turns before attacking, then stop and rush to Patapons. Keep staggering if you can, their count before attacking will be zero when they are staggered, so it prevents rush as result."
-        },
-        "Manboroth":
-        {
-          "difficulty":"hard",
-          "weakness": "fire",
-          "sleep": true,
-          "knockback": false,
-          "ice": false,
-          "thunder":false,
-          "note": "At the end of the phase, it moves back in many turns before attacking, then stop and rush to Patapons. Keep staggering if you can, their count before attacking will be zero when they are staggered, so it prevents rush as result."
-        }
-      }
-    },
-    "Hide":{
-      "Items":["Berara Hide","Gotsutsu Hide","Subebe Hide","Mezura Hide","Demon Hide"],
-      "Boss":{
-        "Garuru":{
-          "difficulty":"only",
-          "weakness": "fire",
-          "sleep": false,
-          "knockback": true,
-          "ice": false,
-          "nostagger": "Laser attack",
-          "thunder":true,
-          "note":"When it's about to spit poison and being staggered, it trys to do the same move again and again. Keep attacking is recommended in this case, if you can stagger a lot (all time)."
-        }
-      }
-    },
-    "Vegetable":{
-      "Items":["Eyeball Cabbage","Crying Carrot","Predator Pumpkin","Hazy Shroom","Guddorian"],
-      "Boss":{
-        "Zaknel":{
-          "difficulty":"easy",
-          "weakness": "sleep",
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "thunder":false,
-          "nostagger":"Wheel attack (>= Lv10)"
-        },
-        "Dokaknel":
-        {
-          "difficulty":"hard",
-          "weakness": "sleep",
-          "sleep": true,
-          "knockback": false,
-          "ice": true,
-          "thunder":false,
-          "nostagger":"Wheel attack",
-          "note":"Try to keep distance and push (but not too much - if too far away, you miss the chance to deal damage). Even DONDON doesn't work with wheel attack if they're too close. Shield/melee units are strongly required. Even with Kiba melee doesn't protect Hatapon so well from wheel attack."
-        }
-      }
-    },
-    "Seed":
-    {
-      "Items":["Kasu Seed","Yoka Seed","Deka Seed","Bibi Seed","Mater Sprout"],
-      "Boss":{
-        "Shookle":{
-          "difficulty":"only",
-          "weakness":"fire",
-          "sleep": false,
-          "knockback": false,
-          "ice":true,
-          "nostagger":"Vine sprout",
-          "thunder":false,
-          "note":"Using soothing staff can save a turn to use donchaka, but be careful and use donchaka when the soothing staff mahopon is sleeping (or Patapons are too far away from Mahopon). The only way to make dropping good material is freezing, but freezing is difficult too, since it's not their weakness."
-        }
-      }
-    },
-    "Liquid":{
-      "Items":["Familiar Liquid","Hot Liquid","Cold Liquid","Rainbow Liquid","Demon Liquid"],
-      "Boss":{
-        "Cioking":{
-          "difficulty":"only",
-          "weakness": "ice",
-          "sleep": false,
-          "knockback": false,
-          "ice":true,
-          "thunder":true,
-          "note":"It's very easy to get materials, including high-level materials, if you have good stagger and ice team."
-        }
-      }
-    },
-    "Alloy":
-    {
-      "Items":["Sloppy Alloy","Hard Alloy","Awesome Alloy","Magic Alloy","Demon's Ore"],
-      "Boss":{
-        "Kanogias":{
-          "difficulty":"easy",
-          "weakness": "knockback",
-          "sleep": false,
-          "knockback": true,
-          "ice":true,
-          "thunder":false,
-          "note":"They throw bombs, but it does minor damage to Hatapon, and doesn't hit to other Patapons if there are no middle unit (like Yaripon) so you can ignore it. Staggering can prevent their next attack after the bomb - if you can keep staggering."
-        },
-        "Ganodias":{
-          "difficulty":"hard",
-          "weakness": "knockback",
-          "sleep": false,
-          "knockback": true,
-          "ice":true,
-          "thunder":false,
-          "note":"They throw bombs, but it does minor damage to Hatapon, and doesn't hit to other Patapons if there are no middle unit (like Yaripon) so you can ignore it. Staggering can prevent their next attack after the bomb - if you can keep staggering."
-        }
-      }
+    "Kacchindonga": {
+      "difficulty": "hard",
+      "weakness": "knockback",
+      "sleep": true,
+      "knockback": true,
+      "ice": false,
+      "nostagger": "Roar",
+      "thunder": false,
+      "note": "Don't try to kill too slowly. Hatapon is damaged from Roar. Chakachaka command doesn't work well with Hatapon."
     }
+  },
+  "Bone": {
+    "Mochichichi": {
+      "difficulty": "easy",
+      "weakness": null,
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "thunder": false,
+      "note": "When the health cut is enough, they can be 100% staggered (with level 10 tree yumipon * 6) with ponpon. In this case, you may not need to dodge the gas but continue attack. If you stagger with Yumipons, check wind direction to see if the arrows hits. Dodge when headwind blows."
+    },
+    "Fenicchi": {
+      "difficulty": "hard",
+      "weakness": "ice",
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "thunder": false,
+      "note": "When the health cut is enough, they can be 100% staggered (with level 10 tree yumipon * 6) with ponpon. In this case, you may not need to dodge the gas but continue attack. If you stagger with Yumipons, check wind direction to see if the arrows hits. Dodge when headwind blows. Keep mind that it deals much more damage than Mochichichi, so be careful."
+    }
+  },
+  "Fang": {
+    "Centura": {
+      "difficulty": "easy",
+      "weakness": "fire",
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "nostagger": "Tail slide (>= Lv10)",
+      "thunder": false,
+      "note": "Even they're weak against fire, they can be frozen easily. When they're frozen, they cannot attack."
+    },
+    "Darantula": {
+      "difficulty": "hard",
+      "weakness": "fire",
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "thunder": false,
+      "nostagger": "Tail slide"
+    }
+  },
+  "Tree": {
+    "Dogaeen": {
+      "difficulty": "only",
+      "weakness": "knockback",
+      "sleep": false,
+      "knockback": true,
+      "ice": true,
+      "nostagger": "Body slam",
+      "thunder": true,
+      "note": "Although the Wiki said that Body slam is dangerous to stagger, it's the only move that cannot be staggered - if you bring full stagger team, they use body slam much more than other moves."
+    }
+  },
+  "Meat": {
+    "Manboth": {
+      "difficulty": "easy",
+      "weakness": "fire",
+      "sleep": true,
+      "knockback": false,
+      "ice": false,
+      "thunder": false,
+      "note": "(Lvl 10 or more) At the end of the phase, it moves back in many turns before attacking, then stop and rush to Patapons. Keep staggering if you can, their count before attacking will be zero when they are staggered, so it prevents rush as result."
+    },
+    "Manboroth": {
+      "difficulty": "hard",
+      "weakness": "fire",
+      "sleep": true,
+      "knockback": false,
+      "ice": false,
+      "thunder": false,
+      "note": "At the end of the phase, it moves back in many turns before attacking, then stop and rush to Patapons. Keep staggering if you can, their count before attacking will be zero when they are staggered, so it prevents rush as result."
+    }
+  },
+  "Hide": {
+    "Garuru": {
+      "difficulty": "only",
+      "weakness": "fire",
+      "sleep": false,
+      "knockback": true,
+      "ice": false,
+      "nostagger": "Laser attack",
+      "thunder": true,
+      "note": "When it's about to spit poison and being staggered, it trys to do the same move again and again. Keep attacking is recommended in this case, if you can stagger a lot (all time)."
+    }
+  },
+  "Vegetable": {
+    "Zaknel": {
+      "difficulty": "easy",
+      "weakness": "sleep",
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "thunder": false,
+      "nostagger": "Wheel attack (>= Lv10)"
+    },
+    "Dokaknel": {
+      "difficulty": "hard",
+      "weakness": "sleep",
+      "sleep": true,
+      "knockback": false,
+      "ice": true,
+      "thunder": false,
+      "nostagger": "Wheel attack",
+      "note": "Try to keep distance and push (but not too much - if too far away, you miss the chance to deal damage). Even DONDON doesn't work with wheel attack if they're too close. Shield/melee units are strongly required. Even with Kiba melee doesn't protect Hatapon so well from wheel attack."
+    }
+  },
+  "Seed": {
+    "Shookle": {
+      "difficulty": "only",
+      "weakness": "fire",
+      "sleep": false,
+      "knockback": false,
+      "ice": true,
+      "nostagger": "Vine sprout",
+      "thunder": false,
+      "note": "Using soothing staff can save a turn to use donchaka, but be careful and use donchaka when the soothing staff mahopon is sleeping (or Patapons are too far away from Mahopon). The only way to make dropping good material is freezing, but freezing is difficult too, since it's not their weakness."
+    }
+  },
+  "Liquid": {
+    "Cioking": {
+      "difficulty": "only",
+      "weakness": "ice",
+      "sleep": false,
+      "knockback": false,
+      "ice": true,
+      "thunder": true,
+      "note": "It's very easy to get materials, including high-level materials, if you have good stagger and ice team."
+    }
+  },
+  "Alloy": {
+    "Kanogias": {
+      "difficulty": "easy",
+      "weakness": "knockback",
+      "sleep": false,
+      "knockback": true,
+      "ice": true,
+      "thunder": false,
+      "note": "They throw bombs, but it does minor damage to Hatapon, and doesn't hit to other Patapons if there are no middle unit (like Yaripon) so you can ignore it. Staggering can prevent their next attack after the bomb - if you can keep staggering."
+    },
+    "Ganodias": {
+      "difficulty": "hard",
+      "weakness": "knockback",
+      "sleep": false,
+      "knockback": true,
+      "ice": true,
+      "thunder": false,
+      "note": "They throw bombs, but it does minor damage to Hatapon, and doesn't hit to other Patapons if there are no middle unit (like Yaripon) so you can ignore it. Staggering can prevent their next attack after the bomb - if you can keep staggering."
+    }
+  }
 }

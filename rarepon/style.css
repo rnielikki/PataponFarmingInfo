@@ -101,7 +101,9 @@ a {
     position: absolute;
     background-color: #fff;
     z-index: 6;
+    border:3px solid #909090;
 }
+/*CLASS MODAL*/
 .class-modal {
     min-width: 750px;
     overflow: auto;
@@ -162,3 +164,77 @@ a {
     border-color:#ccc;
 }
 /* CLASS COLOR END */
+/* RAREPON MODAL */
+.rarepon-modal {
+    font-size:125%;
+}
+.rarepon-modal-title {
+    margin:0;
+    padding:0.75rem 0.5rem;
+    background-color: #0c5262;
+    color:#fff;
+    text-align: center;
+}
+.rarepon-modal-content {
+    padding:1.5rem;
+}
+.rarepon-modal-level {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #dfdfff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 125%;
+}
+.rarepon-modal-scale, .rarepon-modal-level {
+    vertical-align: middle;
+}
+.rarepon-material-table-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom:1px solid #ccc;
+    margin-bottom:0.5rem;
+}
+.rarepon-material-label {
+    margin-right: 3.5 rem;
+}
+form {
+    margin-bottom:.85rem;
+}
+/* RAREPON MATERIAL COLOR START */
+.material-type1 {
+    background-color: hsl(0,0%,95%) ;
+}
+.material-type2 {
+    background-color: hsl(127,75%,92%);
+}
+.material-type3 {
+    background-color: hsl(0,75%,90%);
+}
+.material-type4 {
+    background-color: hsl(60,75%,88%);
+}
+.material-type5 {
+    background-color: hsl(275,75%,86%);
+}
+/* RAREPON MATERIAL COLOR END */
+/*language*/
+.lang {
+    position: fixed;
+    bottom:0;right:0;
+    padding: .5rem 0;
+    z-index:4;
+}
+.lang a {
+    background-color: #9dc9ff;
+    color:#000;
+    text-decoration: none;
+    font-size:1.25rem;
+    padding:.5rem .75rem;
+}
+.lang a:hover{
+    background-color: #000;
+    color:#ccc;
+}

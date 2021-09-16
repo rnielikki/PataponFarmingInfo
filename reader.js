@@ -1,5 +1,21 @@
 window.addEventListener("load",async function(){
-    let data = await fetch("boss.json").then(res => res.json());
+    let region = (function(){
+        let region = (new URLSearchParams(window.location.search)).get('region');
+        switch(region){
+            case "eu":
+            case "us":
+                return region;
+            default:
+                //I'll ask it later how to check if it's from EU?
+                return "eu";
+        }
+    })();
+    let [bossDataList, materialDataList] =
+        await Promise.all(
+            [fetch("boss.json").then(res => res.json()),
+            fetch(`material-${region}.json`).then(res => res.json())]
+        );
+
     let template = await fetch("template.html").then(res => res.text()).then(res => (new DOMParser()).parseFromString(res, 'text/html').body.firstElementChild);
     let materialInfoElems = document.querySelectorAll(".material-index-content");
 
@@ -10,8 +26,8 @@ window.addEventListener("load",async function(){
     let materialIndexElem = document.querySelector(".material-index");
     let activated = false;
 
-    for(let material of Object.keys(data)){
-        let block = appendElementWithText(material, navFrag, "material", "a");
+    for(let material of Object.keys(bossDataList)){
+        let block = appendElementWithText(materialDataList[material].displayName, navFrag, "material", "a");
         block.href = "#";
         block.addEventListener("click", ()=>loadContent(material));
     }
@@ -19,11 +35,11 @@ window.addEventListener("load",async function(){
     
     function loadContent(material) {
         contentRoot.textContent = "";
-        let materialData = data[material];
-        let bossData = materialData.Boss;
+        let materialData = materialDataList[material];
+        let bossData = bossDataList[material];
 
         initializeMaterialIndexes();
-        addMaterialIndex(material, materialData.Items);
+        addMaterialIndex(material, materialData);
 
         for(let boss of Object.keys(bossData)){
             let elem = addContent(boss, bossData[boss]);
@@ -39,7 +55,7 @@ window.addEventListener("load",async function(){
         }
     }
     
-    function addMaterialIndex(materialType, materialArray) {
+    function addMaterialIndex(materialType, materialInfo) {
         if(!activated) {
             materialIndexElem.classList.remove("hidden");
             activated = true;
@@ -49,7 +65,7 @@ window.addEventListener("load",async function(){
             let img = materialInfoElem.querySelector("img");
             img.classList.add("hidden");
             img.src = `materials/${materialType}/${i}.png`;
-            materialInfoElem.querySelector(".material-index-content-name").textContent = materialArray[i];
+            materialInfoElem.querySelector(".material-index-content-name").textContent = materialInfo.value[i];
         }
     }
 
