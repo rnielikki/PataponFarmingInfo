@@ -1,6 +1,12 @@
 * {
     box-sizing: border-box;
 }
+/* Thanks to Mojipon font creator for the amazing work! */
+/* https://www.deviantart.com/mitsukiharune/journal/Mojipon-Std-EB-A-Patapon-Font-720185552 */
+@font-face {
+    font-family: "PataponFont";
+    src: url("MojiponStd-Regular.otf");
+  }
 html, body {
     margin:0;padding:0;
 }
@@ -70,7 +76,7 @@ a {
     background-color:rgba(0,0,255,0.25);
     cursor:pointer;
 }
-.rarepon-class:hover::after {
+.rarepon-class:hover::after, .rarepon-class:active::after, .rarepon-class:focus::after {
     background-color:rgba(255,255,255,0.65);
 }
 .rarepon-class-name {
@@ -86,6 +92,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "PataponFont", sans-serif;
+    overflow: hidden;
 }
 .rarepon-class-name span {
     background-color: black;
@@ -188,6 +196,9 @@ a {
     font-weight: bold;
     font-size: 125%;
 }
+.rarepon-modal-scale {
+    width:calc(100% - 2.5rem);
+}
 .rarepon-modal-scale, .rarepon-modal-level {
     vertical-align: middle;
 }
@@ -196,9 +207,29 @@ a {
     grid-template-columns: 1fr auto;
     border-bottom:1px solid #ccc;
     margin-bottom:0.5rem;
+    padding: .2rem .8rem;
+}
+a.rarepon-material-table-row:hover, a.rarepon-material-table-row:focus, a.rarepon-material-table-row:active {
+    border:3px solid #aeaeae;
 }
 .rarepon-material-label {
-    margin-right: 3.5 rem;
+    margin-right: 3.5rem;
+}
+.close-button-wrapper {
+    text-align: center;
+}
+.close-button {
+    background-color: darkslateblue;
+    color: #fff;
+    border: none;
+    padding: .4rem .8rem;
+    border-radius: 5px;
+    font-size: 1.35rem;
+    margin-bottom: 1.4rem;
+}
+.close-button:hover, .close-button:focus, .close-button:active {
+    background-color: black;
+    color:lightgray;
 }
 form {
     margin-bottom:.85rem;

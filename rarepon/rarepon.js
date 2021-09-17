@@ -117,19 +117,26 @@ window.addEventListener("load",async function(){
                 let matLevel = rarepons[rarepon].Material[matNameIndex];
                 let matName = materialData[matGroup].value[matLevel-1];
 
-                initAndFillInfoLine(template.querySelector("#material-"+matNameIndex), matName, currentRareponData[matNameIndex], matNameIndex, matLevel);
+                initAndFillInfoLine(template.querySelector("#material-"+matNameIndex), matName, currentRareponData[matNameIndex], matNameIndex, { group: matGroup, level: matLevel });
             }
             initAndFillInfoLine(template.querySelector("#material-KaChing"), "Ka-Ching", currentRareponData.KaChing, "KaChing");
             let scale = template.querySelector("#scale");
             let levelStatus = template.querySelector("#level");
             scale.addEventListener("change", onRangeChanged)
+            template.querySelector(".close-button").onclick = closeModal;
 
             return template;
 
-            function initAndFillInfoLine(materialInfoLine, label, val, key, materialLevel = null){
-                if(materialLevel !== null) {
-                    materialInfoLine.classList.add("material-type"+materialLevel);
+            //example - materialInfoLine: (Element), label: "Stone", val: 8, key: Material1, materalStatus: { group: "Metal", level: 1 }
+            //materialStatus is null for Ka-Ching
+            function initAndFillInfoLine(materialInfoLine, label, val, key, materialStatus = null){
+                if(materialStatus !== null) {
+                    materialInfoLine.href = `../index.html?region=${region}&material=${materialStatus.group}`;
+                    materialInfoLine.target = "_blank";
+                    materialInfoLine.title = `Level ${materialStatus.level} material : Click to see boss farming info`;
+                    materialInfoLine.classList.add("material-type"+materialStatus.level);
                 }
+
                 materialInfoLine.querySelector(".rarepon-material-label").textContent = label;
                 rememberedElements.set(key, materialInfoLine.querySelector(".rarepon-material-value"));
                fillInfoLine(key, val);

@@ -1,15 +1,6 @@
 window.addEventListener("load",async function(){
-    let region = (function(){
-        let region = (new URLSearchParams(window.location.search)).get('region');
-        switch(region){
-            case "eu":
-            case "us":
-                return region;
-            default:
-                //I'll ask it later how to check if it's from EU?
-                return "eu";
-        }
-    })();
+    let urlParams = new URLSearchParams(window.location.search);
+    let region = loadRegion();
     let [bossDataList, materialDataList] =
         await Promise.all(
             [fetch("boss.json").then(res => res.json()),
@@ -21,21 +12,34 @@ window.addEventListener("load",async function(){
 
     let nav = document.querySelector("nav");
     let contentRoot = document.querySelector(".content-root");
-    let navFrag = document.createDocumentFragment();
     let body = document.createDocumentFragment();
     let materialIndexElem = document.querySelector(".material-index");
     let activated = false;
+    let currentMaterial;
 
-    for(let material of Object.keys(bossDataList)){
-        let block = appendElementWithText(materialDataList[material].displayName, navFrag, "material", "a");
-        block.href = "#";
-        block.addEventListener("click", ()=>loadContent(material));
+    (function(defaultMaterial){
+        if(defaultMaterial) {
+            loadContent(defaultMaterial);
+        }
+    })(urlParams.get('material'));
+
+    function loadMaterialIndexes(){
+        nav.textContent = "";
+        let navFrag = document.createDocumentFragment();
+        for(let material of Object.keys(bossDataList)){
+            let block = appendElementWithText(materialDataList[material].displayName, navFrag, "material", "a");
+            block.href = "#";
+            block.addEventListener("click", ()=>loadContent(material));
+        }
+
+        nav.appendChild(navFrag);
     }
-    nav.appendChild(navFrag);
+    loadMaterialIndexes();
     
     function loadContent(material) {
         contentRoot.textContent = "";
         let materialData = materialDataList[material];
+        if(!materialData) return;
         let bossData = bossDataList[material];
 
         initializeMaterialIndexes();
@@ -46,6 +50,8 @@ window.addEventListener("load",async function(){
             body.appendChild(elem);
         }
         contentRoot.appendChild(body);
+        
+        currentMaterial = material;
     }
     
     function initializeMaterialIndexes() {
@@ -112,5 +118,29 @@ window.addEventListener("load",async function(){
         elem.textContent = text;
         target.appendChild(elem);
         return elem;
+    }
+    //Region link setting
+    (function(){
+        document.querySelector(".lang-eu").addEventListener("click", async ()=>await load("eu"));
+        document.querySelector(".lang-us").addEventListener("click", async ()=>await load("us"));
+        async function load(region){
+            region = loadRegion(region);
+            materialDataList = await fetch(`material-${region}.json`).then(res => res.json());
+            loadMaterialIndexes();
+            loadContent(currentMaterial);
+        }
+    })();
+    function loadRegion(region){
+        if(!region){
+            region = urlParams.get('region');
+        }
+        switch(region){
+            case "eu":
+            case "us":
+                return region;
+            default:
+                //I'll ask it later how to check if it's from EU?
+                return "eu";
+        }
     }
 });
