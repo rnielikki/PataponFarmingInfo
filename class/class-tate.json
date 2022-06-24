@@ -1,0 +1,291 @@
+{
+    "Taterazay":
+    {
+        "Skills": [
+            {
+                "Name": "Energy Field 10%",
+                "Type": "Command",
+                "Command": "Chakachaka",
+                "Description": "Skilled use of shield reduces melee damage by 10%!",
+                "Level": 0,
+                "Experience": 600
+            },
+            {
+                "Name": "Energy Field 20%",
+                "Type": "Command",
+                "Command": "Chakachaka",
+                "Description": "Adept use of shield reduces melee damage by 20%! Slight boost to Uberhero Skill Energy Field. Superior skill to Energy Field 10.",
+                "Experience": 200
+            },
+            {
+                "Name": "Energy Field 30%",
+                "Type": "Command",
+                "Command": "Chakachaka",
+                "Description": "Masterful use of shield reduces melee damage by 30%! Boost to Uberhero Skill Energy Field. Superior skill to Energy Field 20.",
+                "Experience": 100
+            },
+            {
+                "Name": "Energy Field 40%",
+                "Type": "Command",
+                "Command": "Chakachaka",
+                "Description": "Astounding use of shield reduces melee damage by 40%! Large boost to Uberhero Skill Energy Field. Superior skill to Energy Field 30.",
+                "Experience": 50
+            },
+            {
+                "Name": "Energy Field 50%",
+                "Type": "Command",
+                "Command": "Chakachaka",
+                "Description": "Ultimate shield-bearing Patapon! Reduces melee damage by 50%! Huge boost to Uberhero Skill Energy Field. Superior to Energy Field 40.",
+                "Experience": 25
+            }
+        ],
+        "From":["Guardira"],
+        "To": [
+            "Guardira",
+            "Tondenga",
+            "Kibadda",
+            "Pierkon",
+            "Charibasa"
+        ]
+    },
+    "Tondenga":
+    {
+        "Skills": [
+            {
+                "Name": "Set Skills 1",
+                "Type": "Command",
+                "Command": "Patapata",
+                "Description": "Gain an additional set skill slot.",
+                "Level": 5,
+                "Experience": 300
+            },
+            {
+                "Name": "Set Skills 2",
+                "Type": "Command",
+                "Command": "Patapata",
+                "Description": "Gain 2 Set Skill slots. Superior skill to Set Skills 1.",
+                "Experience": 100
+            },
+            {
+                "Name": "Set Skills 3",
+                "Type": "Command",
+                "Command": "Patapata",
+                "Description": "Gain 3 Set Skill slots. Superior skill to Set Skills 2.",
+                "Experience": 50
+            },
+            {
+                "Name": "Set Skills 4",
+                "Type": "Command",
+                "Command": "Patapata",
+                "Description": "Gain 4 Set Skill slots. Superior skill to Set Skills 3.",
+                "Experience": 25
+            }
+        ],
+        "From":[ "Taterazay" ],
+        "To": [ "Myamsar" ]
+    },
+    "Destrobo":
+    {
+        "Skills": [
+            {
+                "Name": "Wood Smasher",
+                "Description": "Inflicts extra damage to wooden obstacles.",
+                "Level": 7,
+                "Experience": 300,
+                "Type": "Attack-Wood",
+                "Tip": "Hitting Treants should work (with rain, no fire)."
+            },
+            {
+                "Name": "Stone Smasher",
+                "Description": "Inflicts extra damage to stone obstacles.",
+                "Experience": 100,
+                "Type": "Attack-Stone",
+                "Tip": ""
+            },
+            {
+                "Name": "Metal Smasher",
+                "Description": "Inflicts extra damage to metal obstacles.",
+                "Experience": 50,
+                "Type": "Attack-Metal",
+                "Tip": "Break STRUCTURES, like missiles. According to some report DOOR SPAMMING DOESN'T WORK."
+            },
+            {
+                "Name": "Everything Smasher",
+                "Description": "Attack element becomes crush. Prevents enemy shield evasion. ★Welcome bonus: attack power +50%.",
+                "Experience": 25,
+                "Type": "Attack",
+                "Door":false,
+                "Tip": ""
+            }
+        ],
+        "From":null,
+        "To": [ "Bowmunk" ]
+    },
+        "Guardira":
+    {
+        "Skills": [
+            {
+                "Name": "Anti-Stagger",
+                "Description": "Total immunity from stagger.",
+                "Level": 10,
+                "Experience": 60,
+                "Type": "Status Effect",
+                "Status": "Stagger"
+            },
+            {
+                "Name":"Anti-Knockback",
+                "Description": "Total immunity to knockback.",
+                "Experience": 20,
+                "Type": "Status Effect",
+                "Status": "Knockback"
+            },
+            {
+                "Name": "Anti-Sleep",
+                "Description": "Total immunity from sleep.",
+                "Experience": 15,
+                "Type": "Status Effect",
+                "Status": "Sleep"
+            },
+            {
+                "Name": "Anti-Poison",
+                "Description": "Total immunity to poison.",
+                "Experience": 20,
+                "Type": "Status Effect",
+                "Status": "Poison"
+            }
+        ],
+        "From":["Taterazay"],
+        "To":["Taterazay"]
+    },
+    "Myamsar":
+    {
+        "Skills": [
+            {
+                "Name": "Poison Hide",
+                "Description": "Occasionally poisons attacker. Activated by enemy melee attack.",
+                "Level": 8,
+                "Experience": 300,
+                "Tip": "Kibadeth or dragon puppies (level 19 recommended mission) will help. Bring your best defence equipment."
+            },
+            {
+                "Name": "Doppelganger",
+                "Description": "Immunity to status effects while attacking.",
+                "Experience": 100,
+                "Type": "Status Effect",
+                "Status": "Any",
+                "Tip": "Use Chakachaka instead to Ponpon to deal less damage. Also Peerless penguin can help if you have one."
+            },
+            {
+                "Name": "Poison Bomb",
+                "Description": "User explodes when killed, spreading poison.",
+                "Experience": 1000,
+                "Tip": "If have peerless dragon, can die with any equipment. If don't, go HEROES NEVER REST, die, drink potion from dark hero and full recover. Grass grower (or bowmunk ponchaka~ponpon) + FIRE equipment + PEERLESS SHEEP if you can."
+            },
+            {
+                "Name": "Natural Enemy",
+                "Description": "Inflicts 8x damage when attacking Taterazay and Guardira foes. ★Welcome bonus: 2x attack speed.",
+                "Experience": 40,
+                "Tip": "You can find 6 Tatedeths from first in COVET-HISS LOVES CANNONS (around level 25 mission). Set DEFAULT WEAPON, and Peerless penguin if you have. HERO MODE will be fast, if the Myamsar is hero."
+            }
+        ],
+        "From":["Tondenga"],
+        "To":null
+    },
+    "Bowmunk":
+    {
+        "Skills": [
+            {
+                "Name": "Tiny Base",
+                "Description": "Strengthens small structures i.e. boulders, flowers, cannons, catapults, ice walls, etc.",
+                "Level": 12,
+                "Experience": 480,
+                "Type": "Attack",
+                "Attack Type": ["Charge Defend"],
+                "Door": true,
+                "Tip": "Having VS quests may also help."
+            },
+            {
+                "Name": "Mid Base",
+                "Description": "Strengthens mid structures i.e. lookouts, forts, stone walls, etc. Superior skill to Tiny Base.",
+                "Experience": 160,
+                "Type": "Attack",
+                "Attack Type": ["Charge Defend"],
+                "Door": true,
+                "Tip": "Having VS quests may also help."
+            },
+            {
+                "Name": "Big Base",
+                "Description": "Strengthens large structures i.e. castles, towers, giant ice walls, etc. Superior skill to Mid Base.",
+                "Experience": 80,
+                "Type": "Attack",
+                "Attack Type": ["Charge Defend"],
+                "Door": true,
+                "Tip": "Having VS quests may also help."
+            },
+            {
+                "Name": "Super Fortress",
+                "Description": "Repairs structure HP every 4 seconds. Affects structures on Versus stage, and structures built using skills. ★Welcome bonus: 2x brush / tree healing.",
+                "Experience": 40,
+                "Type": "Attack",
+                "Attack Type": ["Charge Defend"],
+                "Door": true,
+                "Tip": "Having VS quests may also help."
+            }
+        ],
+        "From":["Destrobo"],
+        "To":null
+    },
+    "Grenburr":
+    {
+        "Skills": [
+            {
+                "Name": "Zapper 1",
+                "Description": "Emits a small shockwave where the weapon strikes ground.",
+                "Level": 14,
+                "Experience": 240,
+                "Type": "Attack",
+                "Attack Type": ["Attack", "Defend"],
+                "Door": true,
+                "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
+            },
+            {
+                "Name": "Zapper 2",
+                "Description": "Causes a shockwave. Superior skill to Zapper 1.",
+                "Experience": 80,
+                "Type": "Attack",
+                "Attack Type": ["Attack", "Defend"],
+                "Door": true,
+                "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
+            },
+            {
+                "Name": "Zapper 3",
+                "Description": "Causes a large shockwave. Superior skill to Zapper 2.",
+                "Experience": 40,
+                "Type": "Attack",
+                "Attack Type": ["Attack", "Defend"],
+                "Door": true,
+                "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
+            },
+            {
+                "Name": "Zapper 4",
+                "Description": "Causes a gigantic shockwave. Superior skill to Zapper 3.",
+                "Experience": 20,
+                "Type": "Attack",
+                "Attack Type": ["Attack", "Defend"],
+                "Door": true,
+                "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
+            },
+            {
+                "Name": "Zapper 5",
+                "Description": "Causes a supreme shockwave. Superior skill to Zapper 4.",
+                "Experience": 10,
+                "Type": "Attack",
+                "Attack Type": ["Attack", "Defend"],
+                "Door": true,
+                "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
+            }
+        ],
+        "From":["Cannassault"],
+        "To":["Cannassault"]
+    }
+}
