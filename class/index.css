@@ -6,3 +6,13 @@ body {
     display: flex;
     column-gap: 3rem;
 }
+.skill-list-column {
+    flex-direction: column;
+}
+.skill-list-group {
+    flex-wrap: wrap;
+}
+.skill-list-group::before{
+    content:attr(aria-label);
+    flex-basis: 100%;
+}

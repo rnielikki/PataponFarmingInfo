@@ -3,9 +3,9 @@
 // Also blame Oohoroc lol
 (async function () {
     const [tate, yari, yumi] = await Promise.all([
-        fetch("class-tate.json").then(t => t.json()),
-        fetch("class-yari.json").then(y => y.json()),
-        fetch("class-yumi.json").then(y => y.json())
+        getJsonFetchPromise("class-tate.json"),
+        getJsonFetchPromise("class-yari.json"),
+        getJsonFetchPromise("class-yumi.json")
     ]);
 
     const doc = document.querySelector("#list");
@@ -45,13 +45,38 @@
                     createAndAppendList(cl, toElement, ()=>openClassData(cl, allClasses[cl]));
                 }
             }
-            //WON'T APPLY TO OOHOROC
-            //Don't load to parallel, it saves template to map
-            loadSkillData(value.Skills[0]);
             skillListElement.textContent="";
-            for(let i=0;i<value.Skills.length; i++) {
-                const skill = value.Skills[i];
-                createAndAppendList(skill.Name, skillListElement, ()=>loadSkillData(skill));
+            //Don't load to parallel, it saves template to map
+            if(Array.isArray(value.Skills)) {
+                //No Oohoroc
+                skillListElement.classList.remove("skill-list-column");
+                loadSkillData(value.Skills[0]);
+                for(let i=0;i<value.Skills.length; i++) {
+                    const skill = value.Skills[i];
+                    createAndAppendList(skill.Name, skillListElement, ()=>loadSkillData(skill));
+                }
+            }
+            else {
+                //Oohoroc
+                let skills = value.Skills;
+                skillListElement.classList.add("skill-list-column");
+                let updated = false;
+                for(const groupKey of Object.keys(skills))
+                {
+                    const skillData = skills[groupKey];
+                    const li = createAndAppend("", "li", skillListElement);
+                    const ul = createAndAppend("", "ul", li);
+                    ul.classList.add("skill-list-group");
+                    ul.ariaLabel = groupKey;
+                    for(let i=0;i<skillData.length; i++) {
+                        const skill = skillData[i];
+                        if(!updated){
+                            loadSkillData(skill);
+                            updated = true;
+                        }
+                        createAndAppendList(skill.Name, ul, ()=>loadSkillData(skill));
+                    }
+                }
             }
         }
         finally {
@@ -60,6 +85,12 @@
         function loadSkillData(skill){
             updateContent(skillElement, skill);
             activateCalculator(skill);
-        }
+        }        
+    }
+    function getJsonFetchPromise(url) {
+        return fetch(url, {
+            method:"GET",
+            headers:{"Content-Type":"application/json"}
+        }).then(t => t.json());
     }
 })();

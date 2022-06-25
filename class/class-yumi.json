@@ -214,35 +214,51 @@
     },
     "Oohoroc": {
         "Skills": {
-            "Type": "Attack",
-            "Attack Type": [
-                "Charge Attack"
-            ],
             "Singe": [
                 {
                     "Name": "Singe 1",
                     "Description": "Fires fireballs. Can be used with Staff, Fireball Staff, and Poison Staff. Moderate explosions grow stronger with use.",
                     "Level": 0,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 1200
                 },
                 {
                     "Name": "Singe 2",
                     "Description": "Expands the size of explosions. Superior skill to Singe 1.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 400
                 },
                 {
                     "Name": "Singe 3",
                     "Description": "Creates medium explosions. Superior skill to Singe 2.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 200
                 },
                 {
                     "Name": "Singe 4",
                     "Description": "Creates large explosions. Superior skill to Singe 3.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 80
                 },
                 {
                     "Name": "Singe 5",
                     "Description": "Creates humungous explosions. Superior skill to Singe 4. ★Welcome bonus: huge boost to Singe.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 30
                 }
             ],
@@ -251,26 +267,46 @@
                     "Name": "Volcano 1",
                     "Description": "Creates a wall of fire. Can be used with Firewall Staff or Firesea staff. Moderate flames grow stronger with use.",
                     "Level": 0,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 1200
                 },
                 {
                     "Name": "Volcano 2",
                     "Description": "Flames become more powerful. Superior skill to Volcano 1.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 400
                 },
                 {
                     "Name": "Volcano 3",
                     "Description": "Flames become extremely powerful. Superior skill to Volcano 2.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 200
                 },
                 {
                     "Name": "Volcano 4",
                     "Description": "Flames become untouchable. Superior skill to Volcano 3.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 80
                 },
                 {
                     "Name": "Volcano 5",
                     "Description": "Flames create an infernal hell. Superior skill to Volcano 4. ★Welcome bonus: huge boost to Volcano.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 30
                 }
             ],
@@ -279,57 +315,96 @@
                     "Name": "Flash Crack Boom 1",
                     "Description": "Conjures lightning. Can be used with Lightning, Thunderstorm, or Holy Staffs. Moderate bolts grow stronger with use.",
                     "Level": 0,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 1200
                 },
                 {
                     "Name": "Flash Crack Boom 2",
                     "Description": "Bolts are quite powerful. Superior skill to Flash Crack Boom 1",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 400
                 },
                 {
                     "Name": "Flash Crack Boom 3",
                     "Description": "Bolts are very powerful. Superior skill to Flash Crack Boom 2.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 200
                 },
                 {
                     "Name": "Flash Crack Boom 4",
                     "Description": "Bolts are highly destructive. Superior skill to Flash Crack Boom 3.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 80
                 },
                 {
                     "Name": "Flash Crack Boom 5",
                     "Description": "Bolts strike like a smackdown from the Mighty One. Superior skill to Flash Crack Boom 4. ★Welcome bonus: huge boost to Flash Crack Boom.",
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 30
                 }
             ],
-            "Sorcery": {
-                "Thunderific": {
+            "Sorcery": [
+                {
+                    "Name":"Thunderific",
                     "Description": "This sorcery creates a violent lightning storm using the power of the Thunderstorm Staff. Chaotic lightning inflicts heavy damage. ★Welcome bonus: huge boost to Thunderstorm.",
                     "Requirement": "Flash Crack Boom",
                     "Class Level": 2,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 100
                 },
-                "Darkfire": {
+                {
+                    "Name":"Darkfire",
                     "Description": "This sorcery transforms the earth into a sea of flame using the power of the Flamesea Staff. Inflicts fire damage upon all foes. ★Welcome bonus: huge boost to Darkfire.",
                     "Requirement": "Volcano",
                     "Class Level": 3,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 100
                 },
-                "Venomist": {
+                {
+                    "Name":"Venomist",
                     "Description": "This sorcery summons an opaque cloud of poison using the power of the Darkvenom Staff. Inflicts poison damage upon all foes. ★Welcome bonus: huge boost to Venomist.",
                     "Requirement": "Singe",
                     "Class Level": 3,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 100
                 },
-                "Nova Nova": {
+                {
+                    "Name": "Nova Nova",
                     "Description": "This sorcery coalesces a sacred mist using the power of the Holymist Staff. Inflicts holy damage upon all foes. ★Welcome bonus: huge boost to Nova Nova.",
                     "Requirement": "Flash Crack Boom",
                     "Class Level": 3,
+                    "Type": "Attack",
+                    "Attack Type": [
+                        "Charge Attack"
+                    ],
                     "Experience": 100
                 }
-            }
+            ]
         },
-        "From": null,
         "To": null
     },
     "Jamsch": {
