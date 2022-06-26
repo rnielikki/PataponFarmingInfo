@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
     <script src="dom-loader.js"></script>
+    <script src="tip-loader.js"></script>
     <script src="calculator.js"></script>
     <script src="pata-class-loader.js"></script>
 </head>
@@ -33,25 +34,33 @@
                     <dt>Experience</dt>
                     <dd class="Experience" aria-label="class-skill-experience">0</dd>
                     <dt>Tip</dt>
-                    <dd class="Tip" aria-label="class-skill-tip"></dd>
+                    <dd class="tip-data" aria-label="class-skill-tip"></dd>
                 </dl>
             </div>
             <div class="calc" aria-label="class-skill-calculator">
                 <p class="sidenote">Note: the experience is not guaranteed to be accurate. Also this considers only when command is <mark>100% perfect</mark>. If you are bad at perfect hit, bring Peerless Rabbit (Pyokorider Uberhero level 32) or Wondabarappa.</p>
-                <label for="calc-exp">Current Experience</label>
-                <input type="number" id="calc-exp" min="0" max="99" step="1" aria-label="class-calculator-exp">
+                <label for="calc-exp">
+                    Current Experience
+                    <input type="number" id="calc-exp" min="0" max="99" step="1" aria-label="class-calculator-exp">
+                </label>
                 <label for="calc-speed" title="Unfortunately, it varies too much, depends on equipment, movement speed,attack style (weapon type)... so please observe and put manually.
                     Doesn't count Alosson's attack speed, but counts X spears.
-                    You can use for other purpose like status effect. For charged attack, divide to 2 from attacking.">Executed counts per 1 turn (4 seconds)</label>
-                <input type="number" id="calc-speed" min="0" max="99" step="1" aria-label="class-calculator-speed">
-
-                <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">Peerless Monkey</label>
-                <input type="checkbox" id="calc-monkey" aria-label="class-calculator-monkey">
-                <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">DOI duplication</label>
-                <input type="checkbox" id="calc-doi" aria-label="class-calculator-duplication">
+                    You can use for other purpose like status effect. For charged attack, divide to 2 from attacking.">
+                    Executed counts per 1 turn (4 seconds)
+                    <input type="number" id="calc-speed" min="0" max="99" step="1" aria-label="class-calculator-speed">
+                </label>
+                <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
+                    Peerless Monkey
+                    <input type="checkbox" id="calc-monkey" aria-label="class-calculator-monkey">
+                </label>
+                <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
+                    DOI duplication
+                    <input type="checkbox" id="calc-doi" aria-label="class-calculator-duplication">
+                </label>
                 <label for="calc-cancel" title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
-                    Grind with Command Cancel</label>
-                <input type="checkbox" id="calc-cancel" aria-label="class-calculator-command-canceling">
+                    Grind with Command Cancel
+                    <input type="checkbox" id="calc-cancel" aria-label="class-calculator-command-canceling">
+                </label>
                 <p class="calc-result" id="calc-result"></p>
             </div>
         </div>

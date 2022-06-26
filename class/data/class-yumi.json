@@ -481,7 +481,7 @@
                     "Charge Defend"
                 ],
                 "Door": true,
-                "Tip": "Must equip BLUNBERNESS.",
+                "Tip": "Must equip BLUNDERBUSSES.",
                 "Experience": 120
             },
             {
@@ -522,7 +522,7 @@
                     "Charge Defend"
                 ],
                 "Door": true,
-                "Tip": "DO NOT EQUIP LASER FOR THIS. Blunberness is very highly recommended.",
+                "Tip": "DO NOT EQUIP LASER FOR THIS. Blunderbusses is very highly recommended.",
                 "Description": "Spots hit by shells and flack catch fire. ★Welcome bonus: attack power +50%.",
                 "Experience": 10
             }

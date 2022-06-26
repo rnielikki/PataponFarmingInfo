@@ -1,5 +1,6 @@
 let currentData = null;
 const expBase = 100000;
+const percentMultiplier = expBase / 100;
 let speedMin, speedMax;
 
 let [calcExp, calcSpeed, calcMonkey, calcDoi, calcCancel, resultField] = [null, null, null, null, null, null];
@@ -7,9 +8,19 @@ let [calcExp, calcSpeed, calcMonkey, calcDoi, calcCancel, resultField] = [null, 
 function activateCalculator(data){
     currentData = data;
     calcSpeed.value = "0";
+
+    const isCommand = currentData.Type === "Command";
+    display(calcCancel, isCommand);
+    display(calcDoi, isCommand || currentData.Type === "Attack");
+    display(calcSpeed, !isCommand);
+    loadTip(data);
+
     Calculate();
 }
-window.onload = function()
+function display(element, show) {
+    element.parentElement.style.display = show?"inline":"none";
+}
+window.addEventListener("load", function()
 {
     const calcField = document.querySelector(".calc");
     calcExp = calcField.querySelector("#calc-exp");
@@ -27,7 +38,7 @@ window.onload = function()
     calcMonkey.addEventListener("change", Calculate);
     calcDoi.addEventListener("change", Calculate);
     calcCancel.addEventListener("change", Calculate);
-}
+});
 function Calculate() {
     if(currentData == null) {
         resultField.textContent= "No data to calculate.";
@@ -39,8 +50,8 @@ function Calculate() {
         return;
     }
     const required = currentData.Experience;
-    let requiredMin = Math.ceil((expBase - (exp+1) * 1000) / required);
-    let requiredMax = Math.ceil((expBase - exp * 1000) / required);
+    let requiredMin = Math.ceil((expBase - (exp+1) * percentMultiplier) / required)+1;
+    let requiredMax = Math.ceil((expBase - exp * percentMultiplier) / required);
 
     if(calcMonkey.checked) {
         requiredMin *= 0.75;
@@ -54,6 +65,7 @@ function Calculate() {
         }
     }
     resultField.textContent = `Around ${Math.round(requiredMin)} - ${Math.round(requiredMax)} times of execution required.`;
+
     if(currentData.Type === "Command") {
         const execSecond = calcCancel.checked?2.25:4;
         const lastOffset = calcCancel.checked?0.25:2;

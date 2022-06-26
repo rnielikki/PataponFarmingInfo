@@ -3,9 +3,9 @@
 // Also blame Oohoroc lol
 (async function () {
     const [tate, yari, yumi] = await Promise.all([
-        getJsonFetchPromise("class-tate.json"),
-        getJsonFetchPromise("class-yari.json"),
-        getJsonFetchPromise("class-yumi.json")
+        getJsonFetchPromise("data/class-tate.json"),
+        getJsonFetchPromise("data/class-yari.json"),
+        getJsonFetchPromise("data/class-yumi.json")
     ]);
 
     const doc = document.querySelector("#list");
@@ -17,12 +17,15 @@
     const skillListElement = dataElement.querySelector(".class-skill-list");
     const skillElement = dataElement.querySelector(".class-skill");
 
+    createAndAppend("Shield class", "h2", doc);
     for (let val of Object.keys(tate)) {
         createAndAppendList(val, doc, ()=>openClassData(val, tate[val]));
     }
+    createAndAppend("Spear class", "h2", doc);
     for (let val of Object.keys(yari)) {
         createAndAppendList(val, doc, ()=>openClassData(val, yari[val]));
     }
+    createAndAppend("Archer class", "h2", doc);
     for (let val of Object.keys(yumi)) {
         createAndAppendList(val, doc, ()=>openClassData(val, yumi[val]));
     }
