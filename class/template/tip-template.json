@@ -17,7 +17,7 @@
             "Sleep": "Mushroom in Shooshookle first floor does all time sleeping attack (spore). Or Wipe off the Gargoyle mission contains sleep status effects."
         }
     },
-    "Commmand":{
+    "Command":{
         "Default":"Use PERFECT %Command% to grind. Wondabarappa in team and/or Peerless Rabbit may help. If cancel command is enabled from Patapon 3 Options, cancelling command will save time to wait the turn. \n\n%Cancel%\n\n %DOI%"
     },
     "__common":{

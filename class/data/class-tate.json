@@ -114,6 +114,7 @@
                 "Description": "Attack element becomes crush. Prevents enemy shield evasion. ★Welcome bonus: attack power +50%.",
                 "Experience": 25,
                 "Type": "Attack",
+                "Attack Type": ["Attack"],
                 "Door":false,
                 "Tip": ""
             }

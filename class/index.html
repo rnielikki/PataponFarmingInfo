@@ -10,11 +10,12 @@
     <script src="tip-loader.js"></script>
     <script src="calculator.js"></script>
     <script src="pata-class-loader.js"></script>
+    <script src="cs-skill-retriever.js"></script>
 </head>
 <body>
     <ul class="list" id="list" aria-label="class-list">
     </ul>
-    <div class="content" id="content" aria-label="content">
+    <div class="content" id="content" aria-label="content" style="display:none;">
         <h1 class="title" aria-label="class-name"></h1>
         <h2>This class inherits skill from:</h2>
         <ul class="inherit-from" aria-label="class-inherit-from">
@@ -38,7 +39,7 @@
                 </dl>
             </div>
             <div class="calc" aria-label="class-skill-calculator">
-                <p class="sidenote">Note: the experience is not guaranteed to be accurate. Also this considers only when command is <mark>100% perfect</mark>. If you are bad at perfect hit, bring Peerless Rabbit (Pyokorider Uberhero level 32) or Wondabarappa.</p>
+                <p class="sidenote">Note: the experience is not guaranteed to be accurate. Also this considers only when <u>command is 100% perfect</u>. If you are bad at perfect hit, bring Peerless Rabbit (Pyokorider Uberhero level 32) or Wondabarappa.</p>
                 <label for="calc-exp">
                     Current Experience
                     <input type="number" id="calc-exp" min="0" max="99" step="1" aria-label="class-calculator-exp">

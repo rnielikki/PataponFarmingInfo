@@ -1,6 +1,8 @@
 // You would like to say "Not Destroying ELement is more efficient" or whatever?
 // I know. I DON CARE! DON DODON DODON
 // Also blame Oohoroc lol
+let allClasses = {}; //not loaded yet
+let currentSkillData = null;
 (async function () {
     const [tate, yari, yumi] = await Promise.all([
         getJsonFetchPromise("data/class-tate.json"),
@@ -17,20 +19,26 @@
     const skillListElement = dataElement.querySelector(".class-skill-list");
     const skillElement = dataElement.querySelector(".class-skill");
 
-    createAndAppend("Shield class", "h2", doc);
-    for (let val of Object.keys(tate)) {
-        createAndAppendList(val, doc, ()=>openClassData(val, tate[val]));
-    }
-    createAndAppend("Spear class", "h2", doc);
-    for (let val of Object.keys(yari)) {
-        createAndAppendList(val, doc, ()=>openClassData(val, yari[val]));
-    }
-    createAndAppend("Archer class", "h2", doc);
-    for (let val of Object.keys(yumi)) {
-        createAndAppendList(val, doc, ()=>openClassData(val, yumi[val]));
-    }
-    const allClasses = { ...tate, ...yari, ...yumi };
+    let isReady = false;
+
+    AddToClassList(tate, "Shield");
+    AddToClassList(yari, "Spear");
+    AddToClassList(yumi, "Archer");
+    allClasses = { ...tate, ...yari, ...yumi };
     let running = false;
+    
+    
+    function AddToClassList(cl, title) {
+        let block = createAndAppend(title+" class", "li", doc);
+        let list = document.createElement("ul");
+        block.appendChild(list);
+
+        for (let val of Object.keys(cl)) {
+            createAndAppendList(val, list, ()=>openClassData(val, cl[val]));
+        }
+
+    }
+    
     function openClassData(title, value) {
         if (running) return;
         running = true;
@@ -81,6 +89,10 @@
                     }
                 }
             }
+            if(!isReady){
+                content.style.display = "block";
+                isReady = true;
+            }
         }
         finally {
             running = false;
@@ -88,6 +100,7 @@
         function loadSkillData(skill){
             updateContent(skillElement, skill);
             activateCalculator(skill);
+            currentSkillData = skill;
         }        
     }
     function getJsonFetchPromise(url) {

@@ -15,14 +15,11 @@ window.addEventListener("load", function(){
 });
 function loadTip(data){
     let tip = retrieveTip();
-    tipElement.textContent = tip;
-    if(data.Tip){
-        if(tip) {
-            tipElement.appendChild(document.createElement("br"));
-            tipElement.appendChild(document.createElement("br"));
-        }
-        tipElement.innerText+=data.Tip;
+    if (data.Tip) {
+        if(tip) tip+="<br><br>";
+        tip += data.Tip;
     }
+    tipElement.innerHTML = tip;
     
 
     function retrieveTip() {
@@ -35,14 +32,14 @@ function loadTip(data){
     function replaceFrom(raw){
         switch(data.Type) {
             case "Attack":
-                raw = raw.replaceAll("%Attack%", data["Attack Type"].join(", "));
+                raw = raw.replaceAll("%Attack%", "<mark>"+ data["Attack Type"]?.join(", ")+"</mark>");
                 raw+=data.Door?tips.Attack.Door:tips.Attack.NoDoor;
                 break;
             case "Status Effect":
                 raw+=tips["Status Effect"].Status[data.Status ?? "Any"];
                 break;
             case "Command":
-                raw = raw.replaceAll("%Command%", data.Command);
+                raw = raw.replaceAll("%Command%", "<mark>"+ data.Command+"</mark>");
                 break;
         }
         for(var key of commonKeys) {
