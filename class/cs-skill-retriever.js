@@ -1,10 +1,55 @@
 (function () {
     let _target;
-    let _typeData = new Map();
+    let _map = {}
     window.addEventListener("load", function () {
         _target = document.querySelector(".Type");
-        _target.addEventListener("click", LoadData);
+        
+        const groupMap = new Map();
+        const inputGroup = document.querySelector("#skill-input-group");
+        const inputGroupRadios = [...inputGroup.querySelectorAll("[data-type]")];
+
+        const detailMap = new Map();
+        const inputDetail = document.querySelector("#skill-input-detail");
+        const allDetails = [...inputDetail.querySelectorAll("[data-skill-detail]")];
+
+        
+        for(const detail of allDetails)
+        {
+            detailMap.set(detail.dataset.skillDetail, detail);
+            detail.style.display = "none";
+        }
+        for(const toggle of inputGroupRadios)
+        {
+            groupMap.set(toggle.dataset.type, toggle);
+            toggle.addEventListener("change", function(e){
+                updateLegend(e.target.dataset.type);
+            })
+        }
+
+        window.addEventListener("skillLoaded", function(e) {
+            const type = e.detail.Type;
+            if(groupMap.has(type)) {
+                groupMap.get(type).checked = true;
+                updateLegend(type);
+            }
+            else{
+                _target.textContent = "Other";
+                for(const toggle of inputGroupRadios) {
+                    toggle.checked = false;
+                }
+                updateLegend("");
+            }
+        });
+        
+        function updateLegend(dataType) {
+            for(const detail of allDetails) {
+                detail.style.display=(dataType === detail.dataset.skillDetail)?"block":"none";
+            }
+        }
+        
+        //_target.addEventListener("click", LoadData);
     });
+    /*
     function LoadData(){
         if(currentSkillData==null) return;
         console.log(findData(currentSkillData));
@@ -52,4 +97,5 @@
             return false;
         }
     }
+    */
 })();

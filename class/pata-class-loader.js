@@ -2,7 +2,6 @@
 // I know. I DON CARE! DON DODON DODON
 // Also blame Oohoroc lol
 let allClasses = {}; //not loaded yet
-let currentSkillData = null;
 (async function () {
     const [tate, yari, yumi] = await Promise.all([
         getJsonFetchPromise("data/class-tate.json"),
@@ -99,8 +98,8 @@ let currentSkillData = null;
         }
         function loadSkillData(skill){
             updateContent(skillElement, skill);
-            activateCalculator(skill);
-            currentSkillData = skill;
+            const onSkillLoaded = new CustomEvent("skillLoaded", { detail:skill });
+            window.dispatchEvent(onSkillLoaded);
         }        
     }
     function getJsonFetchPromise(url) {

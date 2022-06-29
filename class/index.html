@@ -50,19 +50,109 @@
                     Executed counts per 1 turn (4 seconds)
                     <input type="number" id="calc-speed" min="0" max="99" step="1" aria-label="class-calculator-speed">
                 </label>
-                <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
-                    Peerless Monkey
-                    <input type="checkbox" id="calc-monkey" aria-label="class-calculator-monkey">
-                </label>
-                <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
-                    DOI duplication
-                    <input type="checkbox" id="calc-doi" aria-label="class-calculator-duplication">
-                </label>
-                <label for="calc-cancel" title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
-                    Grind with Command Cancel
-                    <input type="checkbox" id="calc-cancel" aria-label="class-calculator-command-canceling">
-                </label>
+                <fieldset>
+                    <legend>Skill boost</legend>
+                    <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
+                        Peerless Monkey
+                        <input type="checkbox" id="calc-monkey" aria-label="class-calculator-monkey">
+                    </label>
+                    <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
+                        DOI duplication
+                        <input type="checkbox" id="calc-doi" aria-label="class-calculator-duplication">
+                    </label>
+                    <label for="calc-cancel" title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
+                        Grind with Command Cancel
+                        <input type="checkbox" id="calc-cancel" aria-label="class-calculator-command-canceling">
+                    </label>
+                </fieldset>
                 <p class="calc-result" id="calc-result"></p>
+            </div>
+            <div class="skill-finder" area="class-skill-finder">
+                <fieldset id="skill-input-group">
+                    <legend>Type</legend>
+                    <label for="skill-type-attack">
+                        Attack
+                        <input type="radio" name="skill-type" id="skill-type-attack" data-type="Attack">
+                    </label>
+                    <label for="skill-type-command">
+                        Command
+                        <input type="radio" name="skill-type" id="skill-type-command" data-type="Command">
+                    </label>
+                    <label for="skill-type-status">
+                        Status effect
+                        <input type="radio" name="skill-type" id="skill-type-status" data-type="Status Effect">
+                    </label>
+                </fieldset>
+                <fieldset id="skill-input-detail">
+                    <legend>Details</legend>
+                    <div id="skill-detail-attack" data-skill-detail="Attack">
+                        <label for="skill-detail-attack-door">
+                            Door spamming
+                            <input type="checkbox" id="skill-detail-attack-door">
+                        </label>
+                        <fieldset>
+                            <legend>Attack Type</legend>
+                            <label for="skill-detail-attack-attack">
+                                Attack
+                                <input type="checkbox" id="skill-detail-attack-attack">
+                            </label>
+                            <label for="skill-detail-attack-charge-attack">
+                                Charge Attack
+                                <input type="checkbox" id="skill-detail-attack-charge-attack">
+                            </label>
+                            <label for="skill-detail-attack-defend">
+                                Defend
+                                <input type="checkbox" id="skill-detail-attack-defend">
+                            </label>
+                            <label for="skill-detail-attack-charge-defend">
+                                Charge Defend
+                                <input type="checkbox" id="skill-detail-attack-charge-defend">
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div id="skill-detail-command" data-skill-detail="Command">
+                         <fieldset>
+                            <legend>Command Type</legend>
+                            <label for="skill-detail-command-patapata">
+                                PATA PATA PATA PON
+                                <input type="checkbox" id="skill-detail-command-patapata">
+                            </label>
+                            <label for="skill-detail-command-chakachaka">
+                                CHAKA CHAKA PATA PON
+                                <input type="checkbox" id="skill-detail-command-chakachaka">
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div id="skill-detail-status" data-skill-detail="Status Effect">
+                         <fieldset>
+                            <legend>Status Effect Type</legend>
+                            <label for="skill-detail-status-stagger">
+                                Stagger
+                                <input type="checkbox" id="skill-detail-status-stagger">
+                            </label>
+                            <label for="skill-detail-status-knockback">
+                                Knockback
+                                <input type="checkbox" id="skill-detail-status-knockback">
+                            </label>
+                            <label for="skill-detail-status-fire">
+                                Fire
+                                <input type="checkbox" id="skill-detail-status-fire">
+                            </label>
+                            <label for="skill-detail-status-ice">
+                                Ice
+                                <input type="checkbox" id="skill-detail-status-ice">
+                            </label>
+                            <label for="skill-detail-status-sleep">
+                                Sleep
+                                <input type="checkbox" id="skill-detail-status-sleep">
+                            </label>
+                            <label for="skill-detail-status-poison">
+                                Poison
+                                <input type="checkbox" id="skill-detail-status-poison">
+                            </label>
+                        </fieldset>
+                    </div>
+                </fieldset>
             </div>
         </div>
     </div>
