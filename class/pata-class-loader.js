@@ -1,13 +1,14 @@
 // You would like to say "Not Destroying ELement is more efficient" or whatever?
 // I know. I DON CARE! DON DODON DODON
 // Also blame Oohoroc lol
-let allClasses = {}; //not loaded yet
 (async function () {
     const [tate, yari, yumi] = await Promise.all([
         getJsonFetchPromise("data/class-tate.json"),
         getJsonFetchPromise("data/class-yari.json"),
         getJsonFetchPromise("data/class-yumi.json")
     ]);
+
+    let allClasses = {}; //not loaded yet
 
     const doc = document.querySelector("#list");
     const content = document.querySelector("#content");
@@ -24,6 +25,10 @@ let allClasses = {}; //not loaded yet
     AddToClassList(yari, "Spear");
     AddToClassList(yumi, "Archer");
     allClasses = { ...tate, ...yari, ...yumi };
+
+    const onDataLoaded = new CustomEvent("dataLoaded", { detail:allClasses });
+    window.dispatchEvent(onDataLoaded);
+
     let running = false;
     
     

@@ -1,6 +1,97 @@
 (function () {
     let _target;
-    let _map = {}
+    const calculators = {
+       "Attack" : calculateAttack,
+       "Command" : calculateCommand,
+       "Status Effect": calculateStatusEffect
+    };
+    const dataBySkillType = {
+        "Attack":
+        {
+            "Door":{
+                "Attack":{},
+                "Defend":{},
+                "Charge Attack":{},
+                "Charge Defend":{}
+            },
+            "NoDoor":{
+                "Attack":{},
+                "Defend":{},
+                "Charge Attack":{},
+                "Charge Defend":{}
+            }
+        },
+        "Command":{
+            "PATAPATA":{},
+            "CHAKACHAKA":{}
+        },
+        "Status Effect": {
+            "Stagger":{},
+            "Knockback":{},
+            "Fire":{},
+            "Ice":{},
+            "Sleep":{},
+            "Poison":{}
+        }
+    };
+
+    window.addEventListener("dataLoaded", function(e){
+        const allClassData = e.detail;
+        for(const className of Object.keys(allClassData))
+        {
+            const classData = allClassData[className];
+            let skillList = classData.Skills;
+            if(!Array.isArray(skillList)) skillList = Object.values(skillList).flat();
+            for(const skill of skillList) {
+                switch(skill.Type){
+                    case "Attack":
+                        const attackTypes = skill["Attack Type"];
+                        if(attackTypes && Array.isArray(attackTypes)){
+                            for(const attackType of attackTypes){
+
+                                const dataByAttackType =
+                                    skill.Door?
+                                    dataBySkillType.Attack.Door[attackType]:
+                                    dataBySkillType.Attack.NoDoor[attackType];
+                                addOrCreate(dataByAttackType, skill, className);
+                            }
+                        }
+                        break;
+                    case "Command":
+                        const command = skill["Command"].toUpperCase();
+                        if(command) {
+                            const dataByCommand = dataBySkillType.Command[command];
+                            if(dataByCommand) addOrCreate(dataByCommand, skill, className);
+                        }
+                        break;
+                    case "Status Effect":
+                        const status = skill["Status"];
+                        if (status) {
+                            const dataByStatusEffect = dataBySkillType["Status Effect"];
+                            if(!dataByStatusEffect) break;
+                            if(status != "Any") addOrCreate(dataByStatusEffect[status], skill, className);
+                            else {
+                                for(const stData of Object.values(dataByStatusEffect)) {
+                                    addOrCreate(stData, skill, className);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+        }
+        console.log(dataBySkillType);
+        function addOrCreate(group, unitData, unitName) {
+            if (group) {
+                if (!group[unitName]) {
+                    group[unitName] = [unitData]
+                }
+                else {
+                    group[unitName].push(unitData);
+                }
+            }
+        }
+    });
     window.addEventListener("load", function () {
         _target = document.querySelector(".Type");
         
@@ -10,8 +101,7 @@
 
         const detailMap = new Map();
         const inputDetail = document.querySelector("#skill-input-detail");
-        const allDetails = [...inputDetail.querySelectorAll("[data-skill-detail]")];
-
+        const allDetails = [...inputDetail.querySelectorAll("[data-skill-detail]")]; 
         
         for(const detail of allDetails)
         {
@@ -40,15 +130,37 @@
                 updateLegend("");
             }
         });
+        addUpdaters("Attack");
+        addUpdaters("Command");
+        addUpdaters("Status Effect");
         
         function updateLegend(dataType) {
             for(const detail of allDetails) {
                 detail.style.display=(dataType === detail.dataset.skillDetail)?"block":"none";
             }
+            if(!dataType) return;
+            const calculator = calculators[dataType];
+            if(calculator)  calculator();
         }
-        
+        function addUpdaters(type) {
+            for(const elem of [...detailMap.get(type).querySelectorAll("input")]){
+                elem.addEventListener("change", calculators[type]);
+            }
+        }
         //_target.addEventListener("click", LoadData);
     });
+    function calculateAttack() {
+        console.log("attack");
+    }
+    function calculateCommand() {
+        console.log("command");
+        
+    }
+    function calculateStatusEffect() {
+        console.log("status");
+    }
+    function loadData() {
+    }
     /*
     function LoadData(){
         if(currentSkillData==null) return;
