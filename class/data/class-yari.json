@@ -46,6 +46,7 @@
                 "Name": "Assault Hits 1",
                 "Description": "Inflict extra hits with powerful stampede.",
                 "Level": 5,
+                "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Attack", "Charge Defend"],
                 "Door": true,
                 "Experience": 240

@@ -220,6 +220,7 @@
                     "Description": "Fires fireballs. Can be used with Staff, Fireball Staff, and Poison Staff. Moderate explosions grow stronger with use.",
                     "Level": 0,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -229,6 +230,7 @@
                     "Name": "Singe 2",
                     "Description": "Expands the size of explosions. Superior skill to Singe 1.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -238,6 +240,7 @@
                     "Name": "Singe 3",
                     "Description": "Creates medium explosions. Superior skill to Singe 2.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -247,6 +250,7 @@
                     "Name": "Singe 4",
                     "Description": "Creates large explosions. Superior skill to Singe 3.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -256,6 +260,7 @@
                     "Name": "Singe 5",
                     "Description": "Creates humungous explosions. Superior skill to Singe 4. ★Welcome bonus: huge boost to Singe.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -268,6 +273,7 @@
                     "Description": "Creates a wall of fire. Can be used with Firewall Staff or Firesea staff. Moderate flames grow stronger with use.",
                     "Level": 0,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -277,6 +283,7 @@
                     "Name": "Volcano 2",
                     "Description": "Flames become more powerful. Superior skill to Volcano 1.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -286,6 +293,7 @@
                     "Name": "Volcano 3",
                     "Description": "Flames become extremely powerful. Superior skill to Volcano 2.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -295,6 +303,7 @@
                     "Name": "Volcano 4",
                     "Description": "Flames become untouchable. Superior skill to Volcano 3.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -304,6 +313,7 @@
                     "Name": "Volcano 5",
                     "Description": "Flames create an infernal hell. Superior skill to Volcano 4. ★Welcome bonus: huge boost to Volcano.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -316,6 +326,7 @@
                     "Description": "Conjures lightning. Can be used with Lightning, Thunderstorm, or Holy Staffs. Moderate bolts grow stronger with use.",
                     "Level": 0,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -325,6 +336,7 @@
                     "Name": "Flash Crack Boom 2",
                     "Description": "Bolts are quite powerful. Superior skill to Flash Crack Boom 1",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -334,6 +346,7 @@
                     "Name": "Flash Crack Boom 3",
                     "Description": "Bolts are very powerful. Superior skill to Flash Crack Boom 2.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -343,6 +356,7 @@
                     "Name": "Flash Crack Boom 4",
                     "Description": "Bolts are highly destructive. Superior skill to Flash Crack Boom 3.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -352,6 +366,7 @@
                     "Name": "Flash Crack Boom 5",
                     "Description": "Bolts strike like a smackdown from the Mighty One. Superior skill to Flash Crack Boom 4. ★Welcome bonus: huge boost to Flash Crack Boom.",
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -365,6 +380,7 @@
                     "Requirement": "Flash Crack Boom",
                     "Class Level": 2,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -376,6 +392,7 @@
                     "Requirement": "Volcano",
                     "Class Level": 3,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -387,6 +404,7 @@
                     "Requirement": "Singe",
                     "Class Level": 3,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
@@ -398,6 +416,7 @@
                     "Requirement": "Flash Crack Boom",
                     "Class Level": 3,
                     "Type": "Attack",
+                    "Door": true,
                     "Attack Type": [
                         "Charge Attack"
                     ],
