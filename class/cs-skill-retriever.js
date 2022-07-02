@@ -1,3 +1,5 @@
+//see console log to find out the data structure!
+//WARNING: THIS IS COMPLICATED!
 (function () {
     let _target;
     const calculators = {
@@ -80,6 +82,7 @@
                 }
             }
         }
+        console.log("The rearranged data:");
         console.log(dataBySkillType);
         function addOrCreate(group, unitData, unitName) {
             if (group) {
@@ -92,15 +95,20 @@
             }
         }
     });
+    const groupMap = {};
+    let resultContainer;
+    let resultTemplate;
     window.addEventListener("load", function () {
         _target = document.querySelector(".Type");
         
-        const groupMap = {};
         const inputGroup = document.querySelector("#skill-input-group");
         const inputGroupRadios = [...inputGroup.querySelectorAll("[data-type]")];
 
         const inputDetail = document.querySelector("#skill-input-detail");
         const allDetails = [...inputDetail.querySelectorAll("[data-skill-detail]")]; 
+
+        resultContainer = document.querySelector(".skill-result");
+        resultTemplate = resultContainer.querySelector("template").content;
         
         for(const detail of allDetails)
         {
@@ -138,6 +146,7 @@
                 updateLegend("", null);
             }
         });
+        console.log("The DOM of data:");
         console.log(groupMap);
         addUpdaters("Attack");
         addUpdaters("Command");
@@ -169,7 +178,6 @@
                     //not an array
                     else {
                         const elem = detailContents[detailIndex][skillDetailData.toLowerCase()];
-                        //console.log(`${skillDetailData} and ${detailIndex}`);
                         if(skillDetailData && detailContents[detailIndex]) {
                             elem.checked =
                                 skillDetailData.toLowerCase() === elem.dataset.skillValue.toLowerCase();
@@ -188,64 +196,71 @@
         //_target.addEventListener("click", LoadData);
     });
     function calculateAttack() {
-        console.log("attack");
+        const detailContent = groupMap.Attack["detail-content"];
+        const attackTypeElems = detailContent["Attack Type"];
+        const door = detailContent["Door"];
+        const detailData = dataBySkillType.Attack;
+        let resultData = {};
+        for(var elem of Object.values(attackTypeElems)){
+            if(elem.checked) {
+                const attackTypeKey = elem.dataset.skillValue;
+                combineObjects(resultData, detailData.Door[attackTypeKey]);
+
+                if(!door.checked){
+                    combineObjects(resultData, detailData.NoDoor[attackTypeKey]);
+                }
+            }
+        }
+        updateResult(resultData);
     }
     function calculateCommand() {
-        console.log("command");
-        
+        const detailContent = groupMap.Command["detail-content"]["Command"];
+        const detailData = dataBySkillType.Command;
+        let resultData = {};
+        for(var elem of Object.values(detailContent)){
+            if(elem.checked) {
+                const cmdTypeKey = elem.dataset.skillValue;
+                combineObjects(resultData, detailData[cmdTypeKey]);
+            }
+        }
+        updateResult(resultData);
     }
     function calculateStatusEffect() {
-        console.log("status");
-    }
-    function loadData() {
-    }
-    /*
-    function LoadData(){
-        if(currentSkillData==null) return;
-        console.log(findData(currentSkillData));
-    }
-    function findData(data){
-        if(allClasses === {} || !(data?.Type)) return [];
-        let relatedSkills = [];
-        for(const className of Object.keys(allClasses)) {
-            let csList = allClasses[className].Skills;
-            if(!Array.isArray(csList)) {
-                csList = Object.values(csList);
+        const detailContent = groupMap["Status Effect"]["detail-content"]["Status"];
+        const detailData = dataBySkillType["Status Effect"];
+        let resultData = {};
+        for(var elem of Object.values(detailContent)){
+            if(elem.checked) {
+                const statusEffect = elem.dataset.skillValue;
+                combineObjects(resultData, detailData[statusEffect]);
             }
-            for(const skill of csList) {
-                if(skill?.Type === data.Type && compareIfRelated(data, skill)) {
-                    relatedSkills.push(skill);
+        }
+        updateResult(resultData);
+    }
+    function combineObjects(objSample, objToAppend) {
+        for(var key of Object.keys(objToAppend)) {
+            const objData = objToAppend[key];
+            if(objSample[key]) {
+                for(const val of objData) {
+                    objSample[key].add(val);
                 }
             }
-        }
-        return relatedSkills;
-    }
-    function compareIfRelated(skillOne, skillTwo) {
-        if(skillOne === skillTwo) return false;
-        switch(skillOne.Type) {
-            case "Attack":
-                if((skillOne.Door && !skillTwo.Door)) return false;
-                const firstAttackType = skillOne["Attack Type"];
-                const secondAttackType = skillTwo["Attack Type"];
-                if(firstAttackType && secondAttackType &&
-                    Array.isArray(firstAttackType) && Array.isArray(secondAttackType)){
-                    return testOverlap(firstAttackType, secondAttackType);
-                }
-                return true;
-            case "Command":
-                return skillOne.Command === skillTwo.Command;
-            case "Status Effect":
-                if(skillOne.Status === "Any" || skillTwo.Status === "Any") return true;
-                else return skillOne.Status === skillTwo.Status;
-            default:
-                return true;
-        }
-        function testOverlap(arrayOne, arrayTwo){
-            for(const dataOne of arrayOne) {
-                if(arrayTwo.indexOf(dataOne) > -1) return true;
+            else {
+                objSample[key] = new Set(objData);
             }
-            return false;
         }
     }
-    */
+    function updateResult(data) {
+        resultContainer.textContent = "";
+        for(var cl of Object.keys(data)) {
+            const currentData = data[cl];
+            const cloned = resultTemplate.cloneNode(true);
+            cloned.querySelector("summary").textContent = cl;
+            const list = cloned.querySelector("ul");
+            for(var skl of currentData){
+                createAndAppendList(skl.Name, list, ()=>0)
+            }
+            resultContainer.appendChild(cloned);
+        }
+    }
 })();

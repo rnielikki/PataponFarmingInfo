@@ -13,9 +13,10 @@
     <script src="cs-skill-retriever.js"></script>
 </head>
 <body>
-    <ul class="list" id="list" aria-label="class-list">
-    </ul>
-    <div class="content" id="content" aria-label="content" style="display:none;">
+    <!--<header>Patapon 3 class skill calculator</header>-->
+    <menu class="list" id="list" aria-label="class-list">
+    </menu>
+    <section class="content" id="content" aria-label="content" style="display:none;">
         <h1 class="title" aria-label="class-name"></h1>
         <h2>This class inherits skill from:</h2>
         <ul class="inherit-from" aria-label="class-inherit-from">
@@ -153,8 +154,19 @@
                         </fieldset>
                     </div>
                 </fieldset>
+                <div class="skill-result">
+                    <template>
+                        <details>
+                            <summary></summary>
+                            <ul></ul>
+                        </details>
+                    </template>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <footer>
+        Made by Mielikki (@patapon_meden on Twitter). If data is not correct, please help fixing it!
+    </footer>
 </body>
 </html>
