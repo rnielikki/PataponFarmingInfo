@@ -1,6 +1,6 @@
 //see console log to find out the data structure!
 //WARNING: THIS IS COMPLICATED!
-(function () {
+const skillRetriever = (function () {
     let _target;
     const calculators = {
        "Attack" : calculateAttack,
@@ -98,6 +98,8 @@
     const groupMap = {};
     let resultContainer;
     let resultTemplate;
+    let dialog;
+    let currentSkill;
     window.addEventListener("load", function () {
         _target = document.querySelector(".Type");
         
@@ -109,6 +111,7 @@
 
         resultContainer = document.querySelector(".skill-result");
         resultTemplate = resultContainer.querySelector("template").content;
+        dialog = document.querySelector(".skill-finder");
         
         for(const detail of allDetails)
         {
@@ -131,32 +134,51 @@
                 updateLegend(e.target.dataset.type);
             })
         }
-
+        const closeSkillWindow = ()=>dialog.removeAttribute("open");
+        document.querySelector(".skill-close").addEventListener("click", closeSkillWindow);
         window.addEventListener("skillLoaded", function(e) {
+            currentSkill = e.detail;
             const type = e.detail.Type;
+            if(!groupMap[type])
+                _target.textContent = "Other";
+            closeSkillWindow();
+        })
+
+        const openSkillWindow = function() {
+            if(!currentSkill) return;
+            const type = currentSkill.Type;
             if(groupMap[type]) {
                 groupMap[type].toggle.checked = true;
-                updateLegend(type, e.detail);
+                updateLegend(type, currentSkill);
             }
             else{
-                _target.textContent = "Other";
                 for(const toggle of inputGroupRadios) {
                     toggle.checked = false;
                 }
                 updateLegend("", null);
             }
-        });
+            dialog.setAttribute("open", "");
+        };
+        _target.parentElement.querySelector("a").addEventListener("click",openSkillWindow);
+        
         console.log("The DOM of data:");
         console.log(groupMap);
         addUpdaters("Attack");
         addUpdaters("Command");
         addUpdaters("Status Effect");
         
+        return {
+            open:openSkillWindow
+        };
+        
         function updateLegend(dataType, skill) {
             for(const detail of allDetails) {
                 detail.style.display=(dataType === detail.dataset.skillDetail)?"block":"none";
             }
-            if(!dataType) return;
+            if(!dataType) {
+                resultContainer.textContent ="";
+                return;
+            }
             if(skill){
                 const detailContents = groupMap[dataType]["detail-content"];
                 for(const detailIndex of Object.keys(detailContents)) {
@@ -193,7 +215,6 @@
                 elem.addEventListener("change", calculators[type]);
             }
         }
-        //_target.addEventListener("click", LoadData);
     });
     function calculateAttack() {
         const detailContent = groupMap.Attack["detail-content"];
@@ -258,7 +279,9 @@
             cloned.querySelector("summary").textContent = cl;
             const list = cloned.querySelector("ul");
             for(var skl of currentData){
-                createAndAppendList(skl.Name, list, ()=>0)
+                createAndAppend(skl.Name, "li", list);
+                //createAndAppendList(skl.Name, list, ()=>0)
+                //createAndAppendAList(skl, "li", list);
             }
             resultContainer.appendChild(cloned);
         }

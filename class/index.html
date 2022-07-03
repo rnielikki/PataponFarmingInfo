@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
+    <script src="hash-cutter.js"></script>
     <script src="dom-loader.js"></script>
     <script src="tip-loader.js"></script>
     <script src="calculator.js"></script>
@@ -32,7 +33,7 @@
                 <p class="Description"></p>
                 <dl aria-label="class-skill-info">
                     <dt>Type</dt>
-                    <dd class="Type">Others</dd>
+                    <dd><span class="Type">Others</span> <a role="button" class="type-finder" tabindex="0">(other classes with this type)</a></dd>
                     <dt>Experience</dt>
                     <dd class="Experience" aria-label="class-skill-experience">0</dd>
                     <dt>Tip</dt>
@@ -68,7 +69,9 @@
                 </fieldset>
                 <p class="calc-result" id="calc-result"></p>
             </div>
-            <div class="skill-finder" area="class-skill-finder">
+        </div>
+    </section>
+            <dialog class="skill-finder" area="class-skill-finder">
                 <fieldset id="skill-input-group">
                     <legend>Type</legend>
                     <label for="skill-type-attack">
@@ -162,9 +165,8 @@
                         </details>
                     </template>
                 </div>
-            </div>
-        </div>
-    </section>
+                <button class="skill-close" role="close">Close</button>
+            </dialog>
     <footer>
         Made by Mielikki (@patapon_meden on Twitter). If data is not correct, please help fixing it!
     </footer>

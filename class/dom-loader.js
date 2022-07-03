@@ -4,9 +4,10 @@ function createAndAppend(text, elementType, parent) {
     parent.appendChild(elem);
     return elem;
 }
-function createAndAppendList(text, target, callback) {
-    const elem = createAndAppend(text, "li", target);
-    elem.addEventListener("click", callback);
+function createAndAppendAList(text, target, url){
+    const elem = createAndAppend("", "li", target);
+    const link = createAndAppend(text, "a", elem);
+    link.href = url;
     return elem;
 }
 

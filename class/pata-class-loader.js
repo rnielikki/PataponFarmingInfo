@@ -5,7 +5,8 @@
     const [tate, yari, yumi] = await Promise.all([
         getJsonFetchPromise("data/class-tate.json"),
         getJsonFetchPromise("data/class-yari.json"),
-        getJsonFetchPromise("data/class-yumi.json")
+        getJsonFetchPromise("data/class-yumi.json"),
+        new Promise((res)=>window.addEventListener("load", res)) //window load
     ]);
 
     let allClasses = {}; //not loaded yet
@@ -25,25 +26,32 @@
     AddToClassList(yari, "Spear");
     AddToClassList(yumi, "Archer");
     allClasses = { ...tate, ...yari, ...yumi };
+    let running = false;
 
     const onDataLoaded = new CustomEvent("dataLoaded", { detail:allClasses });
     window.dispatchEvent(onDataLoaded);
+    InitHash();
+    window.addEventListener("hashchange", InitHash);
 
-    let running = false;
-    
-    
     function AddToClassList(cl, title) {
         let block = createAndAppend(title+" class", "li", doc);
         let list = document.createElement("ul");
         block.appendChild(list);
 
         for (let val of Object.keys(cl)) {
-            createAndAppendList(val, list, ()=>openClassData(val, cl[val]));
+            createAndAppendAList(val, list, "#"+val);
         }
-
     }
-    
-    function openClassData(title, value) {
+    function InitHash(){
+        const retrieved = hashCutter.retrieve(window.location.hash);
+        if(retrieved.class){
+            openClassData(retrieved.class, allClasses[retrieved.class], retrieved.skill == undefined); //not falsy
+            if(retrieved.skill) {
+                loadSkillData(retrieved.skill);
+            }
+        }
+    }    
+    function openClassData(title, value, loadSkills = false) {
         if (running) return;
         running = true;
         try {
@@ -52,12 +60,12 @@
             toElement.textContent = "";
             if (value.From) {
                 for (const cl of value.From) {
-                    createAndAppendList(cl, fromElement, ()=>openClassData(cl, allClasses[cl]));
+                    createAndAppendAList(cl, fromElement, "#"+cl);
                 }
             }
             if (value.To) {
                 for (const cl of value.To) {
-                    createAndAppendList(cl, toElement, ()=>openClassData(cl, allClasses[cl]));
+                    createAndAppendAList(cl, toElement, "#"+cl);
                 }
             }
             skillListElement.textContent="";
@@ -65,17 +73,17 @@
             if(Array.isArray(value.Skills)) {
                 //No Oohoroc
                 skillListElement.classList.remove("skill-list-column");
-                loadSkillData(value.Skills[0]);
+                if(loadSkills) loadSkillData(value.Skills[0]);
                 for(let i=0;i<value.Skills.length; i++) {
                     const skill = value.Skills[i];
-                    createAndAppendList(skill.Name, skillListElement, ()=>loadSkillData(skill));
+                    createAndAppendAList(skill.Name, skillListElement,`#${title}/${skill.Name}`);
                 }
             }
             else {
                 //Oohoroc
                 let skills = value.Skills;
                 skillListElement.classList.add("skill-list-column");
-                let updated = false;
+                let updated = !loadSkills;
                 for(const groupKey of Object.keys(skills))
                 {
                     const skillData = skills[groupKey];
@@ -89,7 +97,7 @@
                             loadSkillData(skill);
                             updated = true;
                         }
-                        createAndAppendList(skill.Name, ul, ()=>loadSkillData(skill));
+                        createAndAppendAList(skill.Name, ul,`#${title}/${skill.Name}`);
                     }
                 }
             }
@@ -101,12 +109,12 @@
         finally {
             running = false;
         }
-        function loadSkillData(skill){
-            updateContent(skillElement, skill);
-            const onSkillLoaded = new CustomEvent("skillLoaded", { detail:skill });
-            window.dispatchEvent(onSkillLoaded);
-        }        
     }
+    function loadSkillData(skill){
+        updateContent(skillElement, skill);
+        const onSkillLoaded = new CustomEvent("skillLoaded", { detail:skill });
+        window.dispatchEvent(onSkillLoaded);
+    }        
     function getJsonFetchPromise(url) {
         return fetch(url, {
             method:"GET",
