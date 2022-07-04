@@ -98,8 +98,8 @@ const skillRetriever = (function () {
     const groupMap = {};
     let resultContainer;
     let resultTemplate;
-    let dialog;
     let currentSkill;
+    const dialogId = "skill-finder";
     window.addEventListener("load", function () {
         _target = document.querySelector(".Type");
         
@@ -111,7 +111,6 @@ const skillRetriever = (function () {
 
         resultContainer = document.querySelector(".skill-result");
         resultTemplate = resultContainer.querySelector("template").content;
-        dialog = document.querySelector(".skill-finder");
         
         for(const detail of allDetails)
         {
@@ -134,16 +133,6 @@ const skillRetriever = (function () {
                 updateLegend(e.target.dataset.type);
             })
         }
-        const closeSkillWindow = ()=>dialog.removeAttribute("open");
-        document.querySelector(".skill-close").addEventListener("click", closeSkillWindow);
-        window.addEventListener("skillLoaded", function(e) {
-            currentSkill = e.detail;
-            const type = e.detail.Type;
-            if(!groupMap[type])
-                _target.textContent = "Other";
-            closeSkillWindow();
-        })
-
         const openSkillWindow = function() {
             if(!currentSkill) return;
             const type = currentSkill.Type;
@@ -157,9 +146,11 @@ const skillRetriever = (function () {
                 }
                 updateLegend("", null);
             }
-            dialog.setAttribute("open", "");
+            DialogManager.openDialog(dialogId);
         };
+        const closeSkillWindow = ()=>DialogManager.closeDialog(dialogId);
         _target.parentElement.querySelector("a").addEventListener("click",openSkillWindow);
+        document.querySelector(".skill-close").addEventListener("click", closeSkillWindow);
         
         console.log("The DOM of data:");
         console.log(groupMap);
@@ -216,6 +207,14 @@ const skillRetriever = (function () {
             }
         }
     });
+    window.addEventListener("skillLoaded", function(e) {
+        currentSkill = e.detail;
+        const type = e.detail.Type;
+        if(!groupMap[type] && _target)
+            _target.textContent = "Other";
+        DialogManager.closeDialog(dialogId);
+    })
+
     function calculateAttack() {
         const detailContent = groupMap.Attack["detail-content"];
         const attackTypeElems = detailContent["Attack Type"];
@@ -280,8 +279,6 @@ const skillRetriever = (function () {
             const list = cloned.querySelector("ul");
             for(var skl of currentData){
                 createAndAppend(skl.Name, "li", list);
-                //createAndAppendList(skl.Name, list, ()=>0)
-                //createAndAppendAList(skl, "li", list);
             }
             resultContainer.appendChild(cloned);
         }

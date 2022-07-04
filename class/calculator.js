@@ -20,7 +20,13 @@
         Calculate();
     }
     function display(element, show) {
-        element.parentElement.style.display = show ? "inline" : "none";
+        const elem = element.parentElement.parentElement;
+        if(show){
+            elem.removeAttribute("hidden");
+        }
+        else {
+            elem.setAttribute("hidden", "");
+        }
     }
     window.addEventListener("load", function () {
         const calcField = document.querySelector(".calc");

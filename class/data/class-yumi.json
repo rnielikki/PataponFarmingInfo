@@ -124,7 +124,8 @@
                 ],
                 "Door": true,
                 "Tip": "Go to the door and use with GRASS GRINDING + FIRE. With ponchaka~ponpon, bowmunk will plant grass and some other classes (like oohoroc or incensar holder) can burn. It's perfect environment to break the ice.",
-                "Experience": 160
+                "Experience": 160,
+                "Image":"ar.pingrek.freeze-trap.png"
             },
             {
                 "Name": "Ice Buttress",
@@ -140,8 +141,9 @@
             {
                 "Name": "Health Recovery",
                 "Description": "Boosts HP recovery of Healing Chateau and Heal All.",
-                "Tip": "Go to cioking level (dungeon with fire). Do not break the door, and heal front of the door. Fire (that came from back) will take the health constantly so you can keep under 100% health.",
-                "Experience": 5
+                "Tip": "Go to cioking level (dungeon with fire). Do not break the door, and heal front of the door. Fire (that came from back) will take the health constantly so you can keep under 100% health. The multiplayer dungeon in that level can help, if you can send any other unit over the door.",
+                "Experience": 5,
+                "Image":"ar.pingrek.health-recovery.png"
             },
             {
                 "Name": "Frost Guard",

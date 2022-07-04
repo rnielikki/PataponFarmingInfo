@@ -15,13 +15,16 @@ window.addEventListener("load", function(){
 });
 function loadTip(data){
     let tip = retrieveTip();
+    if(data.Image) {
+        if(tip) tip+="<br><br>";
+        tip+=`<img src="tips/${data.Image}" alt="${data.Image}">`;
+    }
     if (data.Tip) {
         if(tip) tip+="<br><br>";
         tip += data.Tip;
     }
     tipElement.innerHTML = tip;
     
-
     function retrieveTip() {
         const type = data.Type;
         if(tips[type]){

@@ -10,15 +10,6 @@ function createAndAppendAList(text, target, url){
     link.href = url;
     return elem;
 }
-
-//----- dom loader
-//----- public
-async function appendDom(templateName, parent)
-{
-    const child = (await _loadDom(templateName)).cloneNode(true);
-    parent.appendChild(child);
-    return child;
-}
 function updateContent(elem, data) {
     if(elem == null){
         console.error("target element is null");
@@ -35,23 +26,28 @@ function updateContent(elem, data) {
         else targetElement.textContent = value;
     }
 }
-//----- should be private
-const _loadedDom = new Map();
-const _domParser = new DOMParser();
-async function _loadDom(templateName) {
-    if(_loadedDom.has(templateName)) {
-        return _loadedDom.get(templateName);
+const DialogManager = (function()
+{
+    const dialogMap = new Map();
+    function toggleOpen(id, isOpen) {
+        let dialog;
+        if(!dialogMap.has(id)) {
+            dialog = document.getElementById(id);
+            if(!dialog) return;
+            else {
+                dialogMap.set(id, dialog);
+            }
+        }
+        else dialog = dialogMap.get(id);
+        if(isOpen) {
+            dialog.setAttribute("open", "true");
+        }
+        else {
+            dialog.removeAttribute("open");
+        }
     }
-    return await fetch(templateName+".html")
-        .then(res => res.text())
-        .then(res => {
-            const htmlDom = _domParser.parseFromString(res, "text/html");
-            const template = htmlDom.querySelector("#template");
-            template.id = "";
-            _loadedDom.set(templateName, template);
-            return template;
-        })
-        .catch(()=>{
-            console.error(`failed to load ${templateName}.html - check if the file exists`);
-        });
-}
+    return {
+        openDialog: (id) => toggleOpen(id, true),
+        closeDialog: (id) => toggleOpen(id, false)
+    }
+})();
