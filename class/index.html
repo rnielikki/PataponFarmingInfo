@@ -14,18 +14,25 @@
     <script src="cs-skill-retriever.js"></script>
 </head>
 <body>
-    <!--<header>Patapon 3 class skill calculator</header>-->
+    <div class="theme-selector" id="theme-selector">
+        <button class="theme-selector-light"></button>
+        <button class="theme-selector-dark"></button>
+    </div>
+    <div id="modal-background" class="modal-background" hidden></div>
+    <header>
+        <h1>Patapon 3 class skill calculator</h1>
+    </header>
     <menu class="list" id="list" aria-label="class-list">
     </menu>
-    <section class="content" id="content" aria-label="content" style="display:none;">
-        <h1 class="title" aria-label="class-name"></h1>
-        <h2>This class inherits skill from:</h2>
+    <section class="content" id="content" aria-label="content" hidden>
+        <h2 class="title" aria-label="class-name"></h2>
+        <h3>This class inherits skill from:</h3>
         <ul class="inherit-from" aria-label="class-inherit-from">
         </ul>
-        <h2>The class skill affects to:</h2>
+        <h3>The class skill affects to:</h3>
         <ul class="inherit-to" aria-label="class-inherit-to">
         </ul>
-        <h2>List of skills info</h2>
+        <h3>Class Skills</h3>
         <div class="data" id="data" aria-label="class-skill-container">
             <ul class="class-skill-list" aria-label="class-skill-list"></ul>
              <div class="class-skill" aria-label="class-skill">
@@ -205,7 +212,9 @@
                 </div>
             </dialog>
     <footer>
-        Made by Mielikki (@patapon_meden on Twitter). If data is not correct, please help fixing it!
+        Made by Mielikki (@patapon_meden on Twitter).
+        <br>To my beloved Cannogabang.
+        <br>If data is not correct, please help fixing it!
     </footer>
 </body>
 </html>

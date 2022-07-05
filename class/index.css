@@ -1,7 +1,109 @@
 body {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+    display:grid;
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows:auto;
+    grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* title is content */
+header {
+    grid-area:header;
+    font-family: "Comic Sans MS";
+}
+content {
+    grid-area:content;
+}
+footer {
+    grid-area:footer;
+}
+/* common */
+a {
+    text-decoration: none;
+}
+::marker {
+    content:"";
+}
+/* dark/light theme */
+body.dark, .dark dialog {
+    background-color: #101010;
+    color:#fff;
+}
+input {
+    background-color: #eaf8ff;
+    color:#252525;
+}
+.dark input
+{
+    background-color: #181b55;
+    color:#d9faff;
+}
+input[type=text], input[type=number] {
+    border:2px solid #8d8ae9;
+}
+input[type=text]:focus, input[type=number]:focus {
+    background-color:#e3d5ff;
+    font-weight: bold;
+}
+.dark input[type=text], .dark input[type=number] {
+    border:2px solid #a597d8;
+}
+.dark input[type=text]:focus, .dark input[type=number]:focus {
+    background-color:#006478;
+}
+/* menu */
+menu {
+    padding-left: 0.75rem;
+    margin-right: 2rem;
+}
+menu > li {
+    background-color:#f3f3f3;
+}
+menu > li > p {
+    font-weight: 500;
+    margin: 0;
+    padding: .4rem .5rem .4rem 2rem;
+    font-size: 1.2rem;
+    background-color: #cdccff;
+    border-bottom: 2px solid #a5acff;
+}
+.dark menu > li > p {
+    background-color: #32316a;
+    border-bottom: 2px solid #5e7e9f;
+}
+.dark menu > li {
+    background-color:#2a2a2a;
+}
+menu a {
+    display: inline-block;
+    width:100%;
+    font-size:1.1rem;
+    color:#460095;
+    padding: .2rem .2rem .2rem .8rem;
+    box-sizing: border-box;
+}
+menu a:hover, menu a:focus {
+    color: #0d469d;
+    font-weight: bold;
+    background-color: #e6f0ff;
+    border-bottom:2px solid #769de5;
+}
+menu ul {
+    padding-left: 0;
+    margin-top:0;
+}
+
+.dark menu a {
+    color: #dbbbff;
+}
+.dark menu a:hover, .dark menu a:focus {
+    color: #d0e9ff;
+    background-color: #3563b9;
+    border-bottom:2px solid #7c8587;
+}
+/**/
 .content ul {
     display: flex;
     column-gap: 3rem;
@@ -15,4 +117,29 @@ body {
 .skill-list-group::before{
     content:attr(aria-label);
     flex-basis: 100%;
+}
+.theme-selector {
+    z-index:1;
+    position: fixed;
+    top:0;right:0;
+}
+.theme-selector button {
+    width:3rem; height:3rem;
+}
+.theme-selector-light {
+    background-color: #fff;
+    border:2px solid #000;
+}
+.theme-selector-dark {
+    background-color:#000;;
+    border:2px solid #fff;
+}
+dialog {
+    z-index:3;
+}
+.modal-background {
+    position: fixed;
+    top:0;left:0;right:0;bottom:0;
+    z-index:2;
+    background-color:rgba(0,0,0,0.6);
 }

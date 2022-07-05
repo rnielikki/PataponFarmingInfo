@@ -26,10 +26,33 @@ function updateContent(elem, data) {
         else targetElement.textContent = value;
     }
 }
+(function(){
+    const isDark = window.matchMedia("(preferes-color-scheme: dark)");
+    window.addEventListener("load", () => {
+        document.querySelector(".theme-selector-light").addEventListener("click", ()=>setTheme(false));
+        document.querySelector(".theme-selector-dark").addEventListener("click", ()=>setTheme(true));
+        setTheme(isDark)
+    });
+    function setTheme(isDark){
+        if(isDark) {
+            document.body.classList.add("dark");
+        }
+        else {
+            document.body.classList.remove("dark");
+        }
+    }
+})();
 const DialogManager = (function()
 {
     const dialogMap = new Map();
+    let bg;
+    let current;
+    window.addEventListener("load", () => {
+        bg = document.querySelector("#modal-background");
+        bg.addEventListener("click", closeCurrent);
+    });
     function toggleOpen(id, isOpen) {
+        if(!bg) return;
         let dialog;
         if(!dialogMap.has(id)) {
             dialog = document.getElementById(id);
@@ -41,10 +64,18 @@ const DialogManager = (function()
         else dialog = dialogMap.get(id);
         if(isOpen) {
             dialog.setAttribute("open", "true");
+            bg.removeAttribute("hidden");
+            current=id;
         }
         else {
+            current=null;
+            bg.setAttribute("hidden", "");
             dialog.removeAttribute("open");
         }
+    }
+    function closeCurrent() {
+        if(!current) return;
+        toggleOpen(current, false);
     }
     return {
         openDialog: (id) => toggleOpen(id, true),

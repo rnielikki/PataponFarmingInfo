@@ -34,7 +34,8 @@
     window.addEventListener("hashchange", InitHash);
 
     function AddToClassList(cl, title) {
-        let block = createAndAppend(title+" class", "li", doc);
+        let block = createAndAppend("", "li", doc);
+        createAndAppend(title+" class", "p", block);
         let list = document.createElement("ul");
         block.appendChild(list);
 
@@ -102,7 +103,7 @@
                 }
             }
             if(!isReady){
-                content.style.display = "block";
+                content.removeAttribute("hidden");
                 isReady = true;
             }
         }
