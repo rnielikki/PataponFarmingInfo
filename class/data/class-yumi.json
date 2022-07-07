@@ -483,8 +483,7 @@
                 "Attack Type": [
                     "Attack",
                     "Defend",
-                    "Charge Attack",
-                    "Charge Defend"
+                    "Charge Attack"
                 ],
                 "Door": true,
                 "Tip": "Must equip CANNON.",
@@ -498,8 +497,7 @@
                 "Attack Type": [
                     "Attack",
                     "Defend",
-                    "Charge Attack",
-                    "Charge Defend"
+                    "Charge Attack"
                 ],
                 "Door": true,
                 "Tip": "Must equip BLUNDERBUSSES.",
@@ -511,8 +509,7 @@
                 "Attack Type": [
                     "Attack",
                     "Defend",
-                    "Charge Attack",
-                    "Charge Defend"
+                    "Charge Attack"
                 ],
                 "Door": true,
                 "Description": "Increases the attack power of lasers.",
@@ -525,8 +522,7 @@
                 "Attack Type": [
                     "Attack",
                     "Defend",
-                    "Charge Attack",
-                    "Charge Defend"
+                    "Charge Attack"
                 ],
                 "Door": true,
                 "Tip": "Any equipment will work.",
@@ -539,8 +535,7 @@
                 "Attack Type": [
                     "Attack",
                     "Defend",
-                    "Charge Attack",
-                    "Charge Defend"
+                    "Charge Attack"
                 ],
                 "Door": true,
                 "Tip": "DO NOT EQUIP LASER FOR THIS. Blunderbusses is very highly recommended.",

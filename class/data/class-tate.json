@@ -180,7 +180,8 @@
                 "Name": "Poison Bomb",
                 "Description": "User explodes when killed, spreading poison.",
                 "Experience": 1000,
-                "Tip": "If have peerless dragon, can die with any equipment. If don't, go HEROES NEVER REST, die, drink potion from dark hero and full recover. Grass grower (or bowmunk ponchaka~ponpon) + FIRE equipment + PEERLESS SHEEP if you can."
+                "Image":"sh.myamsar.poison-bomb.jpg",
+                "Tip": "Peerless dragon might help, but if don't, go HEROES NEVER REST, die, drink potion (when dark heroes die they drop) and full recover. Grass grower (or bowmunk ponchaka~ponpon) + FIRE equipment + PEERLESS SHEEP is fast way to die."
             },
             {
                 "Name": "Natural Enemy",

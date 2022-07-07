@@ -71,14 +71,14 @@
                 requiredMax *= 0.5;
             }
         }
-        resultField.textContent = `Around ${Math.round(requiredMin)} - ${Math.round(requiredMax)} times of execution required.`;
+        resultField.innerHTML = `Around <mark>${Math.round(requiredMin)} - ${Math.round(requiredMax)}</mark> times of execution required.`;
 
         if (currentData.Type === "Command") {
             const execSecond = calcCancel.checked ? 2.25 : 4;
             const lastOffset = calcCancel.checked ? 0.25 : 2;
             const secondResultMin = requiredMin * execSecond - lastOffset
             const secondResultMax = requiredMax * execSecond - lastOffset
-            resultField.textContent += ` (estimated grinding time is ${formatTime(secondResultMin)} - ${formatTime(secondResultMax)})`;
+            resultField.innerHTML += ` (estimated grinding time is <mark>${formatTime(secondResultMin)} - ${formatTime(secondResultMax)}</mark>)`;
             return;
         }
         const speed = calcSpeed.value;
@@ -86,7 +86,7 @@
             const execSecond = 4 / speed;
             const secondResultMin = requiredMin * execSecond + 8; //fever enter time
             const secondResultMax = requiredMax * execSecond + 8;
-            resultField.textContent += ` (estimated grinding time is ${formatTime(secondResultMin)} - ${formatTime(secondResultMax)})`;
+            resultField.innerHTML += ` (estimated grinding time is <mark>${formatTime(secondResultMin)} - ${formatTime(secondResultMax)}</mark>)`;
         }
         function formatTime(seconds) {
             let time = "";

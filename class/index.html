@@ -66,25 +66,25 @@
                 </div>
                 <fieldset>
                     <legend>Skill boost</legend>
-                    <div>
+                    <div class="calc-label-group">
                         <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
                             Peerless Monkey
                             <input type="checkbox" id="calc-monkey">
                         </label>
                     </div>
-                    <div>
+                    <div class="calc-label-group">
                         <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
                             DOI duplication
                             <input type="checkbox" id="calc-doi">
                         </label>
-                        <span class="help" onclick="DialogManager.openDialog('help-doi-grinding')">(?)</span>
+                        <span class="help" onclick="DialogManager.openDialog('help-doi-grinding')"></span>
                     </div>
-                    <div>
+                    <div class="calc-label-group">
                         <label for="calc-cancel" title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
                             Grind with Command Cancel
                             <input type="checkbox" id="calc-cancel">
                         </label>
-                        <span class="help" onclick="DialogManager.openDialog('help-cmd-grinding')">(?)</span>
+                        <span class="help" onclick="DialogManager.openDialog('help-cmd-grinding')"></span>
                     </div>
                 </fieldset>
                 <p class="calc-result" id="calc-result"></p>
