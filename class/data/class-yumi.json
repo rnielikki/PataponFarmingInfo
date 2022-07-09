@@ -113,6 +113,7 @@
                     "Charge Attack"
                 ],
                 "Door": true,
+                "VS": false,
                 "Experience": 480
             },
             {
@@ -123,6 +124,7 @@
                     "Charge Attack"
                 ],
                 "Door": true,
+                "VS": false,
                 "Tip": "Go to the door and use with GRASS GRINDING + FIRE. With ponchaka~ponpon, bowmunk will plant grass and some other classes (like oohoroc or incensar holder) can burn. It's perfect environment to break the ice.",
                 "Experience": 160,
                 "Image":"ar.pingrek.freeze-trap.png"
@@ -135,6 +137,7 @@
                     "Charge Attack"
                 ],
                 "Door": true,
+                "VS": false,
                 "Tip": "This can be classified as charge defend, if the pingrek is hero.",
                 "Experience": 80
             },

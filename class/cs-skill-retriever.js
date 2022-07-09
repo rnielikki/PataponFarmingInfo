@@ -278,7 +278,10 @@ const skillRetriever = (function () {
             cloned.querySelector("summary").textContent = cl;
             const list = cloned.querySelector("ul");
             for(var skl of currentData){
-                createAndAppend(skl.Name, "li", list);
+                const li = document.createElement("li");
+                const a= createAndAppend(skl.Name, "a", li);
+                a.href = `#${cl}/${skl.Name}`;
+                list.appendChild(li);
             }
             resultContainer.appendChild(cloned);
         }

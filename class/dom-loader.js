@@ -50,6 +50,10 @@ const DialogManager = (function()
     window.addEventListener("load", () => {
         bg = document.querySelector("#modal-background");
         bg.addEventListener("click", closeCurrent);
+        window.addEventListener("keydown", function(e){
+            const key = e.key;
+            if(e.key === "Escape" || e.key === "Esc" || e.code === 27) closeCurrent();
+        })
     });
     function toggleOpen(id, isOpen) {
         if(!bg) return;
@@ -65,6 +69,7 @@ const DialogManager = (function()
         if(isOpen) {
             dialog.setAttribute("open", "true");
             bg.removeAttribute("hidden");
+            dialog.querySelector("input")?.focus();
             current=id;
         }
         else {

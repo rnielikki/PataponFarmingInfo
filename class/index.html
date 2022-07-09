@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <script src="pata-class-loader.js"></script>
     <script src="cs-skill-retriever.js"></script>
 </head>
+
 <body>
     <div class="theme-selector" id="theme-selector">
         <button class="theme-selector-light"></button>
@@ -36,12 +38,13 @@
         <h3>Class Skills</h3>
         <div class="data" id="data" aria-label="class-skill-container">
             <ul class="class-skill-list" aria-label="class-skill-list"></ul>
-             <div class="class-skill" aria-label="class-skill">
+            <div class="class-skill" aria-label="class-skill">
                 <h3 class="Name"></h3>
                 <p class="Description"></p>
                 <dl aria-label="class-skill-info">
                     <dt>Type</dt>
-                    <dd><span class="Type">Others</span> <a role="button" class="type-finder" tabindex="0">(other classes with this type)</a></dd>
+                    <dd><span class="Type">Others</span> <a href="javascript:void(0)" class="type-finder">(other
+                            classes with this type)</a></dd>
                     <dt>Experience</dt>
                     <dd class="Experience">0</dd>
                     <dt>Tip</dt>
@@ -49,7 +52,9 @@
                 </dl>
             </div>
             <div class="calc" aria-label="class-skill-calculator">
-                <p class="sidenote">Note: the experience is not guaranteed to be accurate. Also this considers only when <u>command is 100% perfect</u>. If you are bad at perfect hit, bring Peerless Rabbit (Pyokorider Uberhero level 32) or Wondabarappa.</p>
+                <p class="sidenote">Note: the experience is not guaranteed to be accurate. Also this considers only when
+                    <u>command is 100% perfect</u>. If you are bad at perfect hit, bring Peerless Rabbit (Pyokorider
+                    Uberhero level 32) or Wondabarappa.</p>
                 <div>
                     <label for="calc-exp">
                         Current Experience
@@ -57,7 +62,8 @@
                     </label>
                 </div>
                 <div>
-                    <label for="calc-speed" title="Unfortunately, it varies too much, depends on equipment, movement speed,attack style (weapon type)... so please observe and put manually.
+                    <label for="calc-speed"
+                        title="Unfortunately, it varies too much, depends on equipment, movement speed,attack style (weapon type)... so please observe and put manually.
                         Doesn't count Alosson's attack speed, but counts X spears.
                         You can use for other purpose like status effect. For charged attack, divide to 2 from attacking.">
                         Executed counts per 1 turn (4 seconds)
@@ -67,155 +73,183 @@
                 <fieldset>
                     <legend>Skill boost</legend>
                     <div class="calc-label-group">
-                        <label for="calc-monkey" title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
+                        <label for="calc-monkey"
+                            title="Gains class skill experience 25% faster. Unlocked on Uberhero Oohoroc level 32.">
                             Peerless Monkey
                             <input type="checkbox" id="calc-monkey">
                         </label>
                     </div>
                     <div class="calc-label-group">
-                        <label for="calc-doi" title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
+                        <label for="calc-doi"
+                            title="Sometimes character can be duplicated in Depth of Infinity (DxD version only), which grants to gain 2x experience.">
                             DOI duplication
                             <input type="checkbox" id="calc-doi">
                         </label>
-                        <span class="help" onclick="DialogManager.openDialog('help-doi-grinding')"></span>
+                        <a class="help" href="javascript:void(0)" onclick="DialogManager.openDialog('help-doi-grinding')"></a>
                     </div>
                     <div class="calc-label-group">
-                        <label for="calc-cancel" title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
+                        <label for="calc-cancel"
+                            title="Grind with command cancel (See Patapon 3 options to enable command cancel). Can't keep fever. Works with command type only.">
                             Grind with Command Cancel
                             <input type="checkbox" id="calc-cancel">
                         </label>
-                        <span class="help" onclick="DialogManager.openDialog('help-cmd-grinding')"></span>
+                        <a class="help" href="javascript:void(0)" onclick="DialogManager.openDialog('help-cmd-grinding')"></a>
                     </div>
                 </fieldset>
                 <p class="calc-result" id="calc-result"></p>
             </div>
         </div>
     </section>
-            <dialog class="skill-finder" area="class-skill-finder" id="skill-finder">
-                <fieldset id="skill-input-group">
-                    <legend>Type</legend>
-                    <label for="skill-type-attack">
+    <dialog class="image-expand-modal" id="image-expand-modal">
+        <img src="" alt="bigger image" class="image-expand">
+    </dialog>
+    <dialog class="skill-finder" area="class-skill-finder" id="skill-finder">
+        <fieldset id="skill-input-group">
+            <legend>Type</legend>
+            <label for="skill-type-attack">
+                Attack
+                <input type="radio" name="skill-type" id="skill-type-attack" data-type="Attack">
+            </label>
+            <label for="skill-type-command">
+                Command
+                <input type="radio" name="skill-type" id="skill-type-command" data-type="Command">
+            </label>
+            <label for="skill-type-status">
+                Status effect
+                <input type="radio" name="skill-type" id="skill-type-status" data-type="Status Effect">
+            </label>
+        </fieldset>
+        <fieldset id="skill-input-detail">
+            <legend>Details</legend>
+            <div id="skill-detail-attack" data-skill-detail="Attack">
+                <label for="skill-detail-attack-door">
+                    Door spamming
+                    <input type="checkbox" id="skill-detail-attack-door" data-skill-index="Door">
+                </label>
+                <fieldset>
+                    <legend>Attack Type</legend>
+                    <label for="skill-detail-attack-attack">
                         Attack
-                        <input type="radio" name="skill-type" id="skill-type-attack" data-type="Attack">
+                        <input type="checkbox" id="skill-detail-attack-attack" data-skill-value="Attack"
+                            data-skill-index="Attack Type">
                     </label>
-                    <label for="skill-type-command">
-                        Command
-                        <input type="radio" name="skill-type" id="skill-type-command" data-type="Command">
+                    <label for="skill-detail-attack-charge-attack">
+                        Charge Attack
+                        <input type="checkbox" id="skill-detail-attack-charge-attack" data-skill-value="Charge Attack"
+                            data-skill-index="Attack Type">
                     </label>
-                    <label for="skill-type-status">
-                        Status effect
-                        <input type="radio" name="skill-type" id="skill-type-status" data-type="Status Effect">
+                    <label for="skill-detail-attack-defend">
+                        Defend
+                        <input type="checkbox" id="skill-detail-attack-defend" data-skill-value="Defend"
+                            data-skill-index="Attack Type">
+                    </label>
+                    <label for="skill-detail-attack-charge-defend">
+                        Charge Defend
+                        <input type="checkbox" id="skill-detail-attack-charge-defend" data-skill-value="Charge Defend"
+                            data-skill-index="Attack Type">
                     </label>
                 </fieldset>
-                <fieldset id="skill-input-detail">
-                    <legend>Details</legend>
-                    <div id="skill-detail-attack" data-skill-detail="Attack">
-                        <label for="skill-detail-attack-door">
-                            Door spamming
-                            <input type="checkbox" id="skill-detail-attack-door" data-skill-index="Door">
-                        </label>
-                        <fieldset>
-                            <legend>Attack Type</legend>
-                            <label for="skill-detail-attack-attack">
-                                Attack
-                                <input type="checkbox" id="skill-detail-attack-attack" data-skill-value="Attack" data-skill-index="Attack Type">
-                            </label>
-                            <label for="skill-detail-attack-charge-attack">
-                                Charge Attack
-                                <input type="checkbox" id="skill-detail-attack-charge-attack" data-skill-value="Charge Attack" data-skill-index="Attack Type">
-                            </label>
-                            <label for="skill-detail-attack-defend">
-                                Defend
-                                <input type="checkbox" id="skill-detail-attack-defend" data-skill-value="Defend" data-skill-index="Attack Type">
-                            </label>
-                            <label for="skill-detail-attack-charge-defend">
-                                Charge Defend
-                                <input type="checkbox" id="skill-detail-attack-charge-defend" data-skill-value="Charge Defend" data-skill-index="Attack Type">
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div id="skill-detail-command" data-skill-detail="Command">
-                         <fieldset>
-                            <legend>Command Type</legend>
-                            <label for="skill-detail-command-patapata">
-                                PATA PATA PATA PON
-                                <input type="radio" name="skill-command" id="skill-detail-command-patapata" data-skill-value="PATAPATA" data-skill-index="Command">
-                            </label>
-                            <label for="skill-detail-command-chakachaka">
-                                CHAKA CHAKA PATA PON
-                                <input type="radio" name="skill-command" id="skill-detail-command-chakachaka" data-skill-value="CHAKACHAKA" data-skill-index="Command">
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div id="skill-detail-status" data-skill-detail="Status Effect">
-                         <fieldset>
-                            <legend>Status Effect Type</legend>
-                            <label for="skill-detail-status-stagger">
-                                Stagger
-                                <input type="checkbox" id="skill-detail-status-stagger" data-skill-value="Stagger" data-skill-index="Status">
-                            </label>
-                            <label for="skill-detail-status-knockback">
-                                Knockback
-                                <input type="checkbox" id="skill-detail-status-knockback" data-skill-value="Knockback" data-skill-index="Status">
-                            </label>
-                            <label for="skill-detail-status-fire">
-                                Fire
-                                <input type="checkbox" id="skill-detail-status-fire" data-skill-value="Fire" data-skill-index="Status">
-                            </label>
-                            <label for="skill-detail-status-ice">
-                                Ice
-                                <input type="checkbox" id="skill-detail-status-ice" data-skill-value="Ice" data-skill-index="Status">
-                            </label>
-                            <label for="skill-detail-status-sleep">
-                                Sleep
-                                <input type="checkbox" id="skill-detail-status-sleep" data-skill-value="Sleep" data-skill-index="Status">
-                            </label>
-                            <label for="skill-detail-status-poison">
-                                Poison
-                                <input type="checkbox" id="skill-detail-status-poison" data-skill-value="Poison" data-skill-index="Status">
-                            </label>
-                        </fieldset>
-                    </div>
+            </div>
+            <div id="skill-detail-command" data-skill-detail="Command">
+                <fieldset>
+                    <legend>Command Type</legend>
+                    <label for="skill-detail-command-patapata">
+                        PATA PATA PATA PON
+                        <input type="radio" name="skill-command" id="skill-detail-command-patapata"
+                            data-skill-value="PATAPATA" data-skill-index="Command">
+                    </label>
+                    <label for="skill-detail-command-chakachaka">
+                        CHAKA CHAKA PATA PON
+                        <input type="radio" name="skill-command" id="skill-detail-command-chakachaka"
+                            data-skill-value="CHAKACHAKA" data-skill-index="Command">
+                    </label>
                 </fieldset>
-                <div class="skill-result">
-                    <template>
-                        <details>
-                            <summary></summary>
-                            <ul></ul>
-                        </details>
-                    </template>
-                </div>
-                <button class="skill-close" role="close">Close</button>
-            </dialog>
-            <dialog aria-label="help-cmd-grinding" id="help-cmd-grinding">
-                <h1>Command grinding</h1>
-                <p>If you don't wait turn, you can save 1.5 seconds (three drum hit) per command. This looks like a little, but considering massive grinding (without playing), it's fastest way to grind.</p>
-                <p>This is possible because command grinding doesn't require fever status.</p>
-                <h2>Prerequest</h2>
-                <p>In Main menu, Go to <em>Option -> Game System Settings</em> and set <mark>Cancel Command</mark> to <mark>ON</mark>.</p>
-                <video controls width="600">
-                    <source src="cmd-grinding-crop.mp4">
-                    Class skill grinding with cancel video.
-                    With non-stop but in rhythm, press PATA-PATA-PATA-PON-(ANY DRUM)-PATA-PATA-...
-                </video>
-                <div>
-                    <button role="close" onclick="DialogManager.closeDialog('help-cmd-grinding')">Close</button>
-                </div>
-            </dialog>
-            <dialog aria-label="help-doi-grinding" id="help-doi-grinding">
-                <h1>Depths of Infinity Duplication</h1>
-                <p>Sometimes, rarely, and randomly, user is duplicated in Depths of Infinity (no matter if hideout is open or not).</p>
-                <p>With the duplicated class, it's 2x faster to grind!</p>
-                <p>Since the duplication is random and takes Mission retry time (until is duplicated), it's not recommended for short-time grinding.</p>
-                <img src="doi_guide.png">
-                <div>
-                    <button role="close" onclick="DialogManager.closeDialog('help-doi-grinding')">Close</button>
-                </div>
-            </dialog>
+            </div>
+            <div id="skill-detail-status" data-skill-detail="Status Effect">
+                <fieldset>
+                    <legend>Status Effect Type</legend>
+                    <label for="skill-detail-status-stagger">
+                        Stagger
+                        <input type="checkbox" id="skill-detail-status-stagger" data-skill-value="Stagger"
+                            data-skill-index="Status">
+                    </label>
+                    <label for="skill-detail-status-knockback">
+                        Knockback
+                        <input type="checkbox" id="skill-detail-status-knockback" data-skill-value="Knockback"
+                            data-skill-index="Status">
+                    </label>
+                    <label for="skill-detail-status-fire">
+                        Fire
+                        <input type="checkbox" id="skill-detail-status-fire" data-skill-value="Fire"
+                            data-skill-index="Status">
+                    </label>
+                    <label for="skill-detail-status-ice">
+                        Ice
+                        <input type="checkbox" id="skill-detail-status-ice" data-skill-value="Ice"
+                            data-skill-index="Status">
+                    </label>
+                    <label for="skill-detail-status-sleep">
+                        Sleep
+                        <input type="checkbox" id="skill-detail-status-sleep" data-skill-value="Sleep"
+                            data-skill-index="Status">
+                    </label>
+                    <label for="skill-detail-status-poison">
+                        Poison
+                        <input type="checkbox" id="skill-detail-status-poison" data-skill-value="Poison"
+                            data-skill-index="Status">
+                    </label>
+                </fieldset>
+            </div>
+        </fieldset>
+        <div class="skill-result">
+            <template>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </template>
+        </div>
+        <div class="close-container">
+            <button class="skill-close close" role="close">Close</button>
+        </div>
+    </dialog>
+    <dialog aria-label="help-cmd-grinding" id="help-cmd-grinding">
+        <h1>Command grinding</h1>
+        <p>If you don't wait turn, you can save 1.5 seconds (three drum hit) per command. This looks like a little, but
+            considering massive grinding (without playing), it's fastest way to grind.</p>
+        <p>This is possible because command grinding doesn't require fever status.</p>
+        <h2>Prerequest</h2>
+        <p>In Main menu, Go to <em>Option -> Game System Settings</em> and set <mark>Cancel Command</mark> to
+            <mark>ON</mark>.</p>
+        <video controls width="600">
+            <source src="cmd-grinding-crop.mp4">
+            Class skill grinding with cancel video.
+            With non-stop but in rhythm, press PATA-PATA-PATA-PON-(ANY DRUM)-PATA-PATA-...
+        </video>
+        <div class="close-container">
+            <button role="close" onclick="DialogManager.closeDialog('help-cmd-grinding')" class="close">Close</button>
+        </div>
+    </dialog>
+    <dialog aria-label="help-doi-grinding" id="help-doi-grinding">
+        <h1>Depths of Infinity Duplication</h1>
+        <p>Sometimes, rarely, and randomly, user is duplicated in Depths of Infinity (no matter if hideout is open or
+            not).</p>
+        <p>With the duplicated class, it's 2x faster to grind!</p>
+        <p>Since the duplication is random and takes Mission retry time (to make duplication), it's not recommended for
+            short-time grinding.</p>
+        <h2>With Ton/Chin/Kan</h2>
+        <img src="doi_guide.png">
+        <h2>With Hideout Open <small>(note that the status bar is x2)</small></h2>
+        <img src="doi_guide2.png">
+        <div class="close-container">
+            <button role="close" onclick="DialogManager.closeDialog('help-doi-grinding')" class="close">Close</button>
+        </div>
+    </dialog>
     <footer>
         Made by Mielikki (@patapon_meden on Twitter).
         <br>To my beloved Cannogabang.
         <br>If data is not correct, please help fixing it!
     </footer>
 </body>
+
 </html>

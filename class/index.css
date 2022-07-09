@@ -53,6 +53,32 @@ input[type=text]:focus, input[type=number]:focus {
 .dark input[type=text]:focus, .dark input[type=number]:focus {
     background-color:#006478;
 }
+.close-container {
+    text-align: center;
+}
+.close {
+    font-size: 1.24rem;
+    padding: .3rem .8rem;
+    border: 2px solid #91a1ed;
+    color: #39407c;
+    background-color: #dbeeff;
+    cursor: pointer;
+}
+.dark .close {
+    border-color: #2e3e87;
+    color: #ccd0f5;
+    background-color: #192356;
+}
+.close:hover, .close:active, .close:focus {
+    border-color: #7e6ddb;
+    color: #0c134a;
+    background-color: #79b8ed;
+}
+.dark .close:hover, .dark .close:active, .dark .close:focus {
+    border-color: #6f7cb9;
+    color: #d2d4e5;
+    background-color: #34438f;
+}
 /* menu */
 menu {
     padding-left: 0.75rem;
@@ -250,9 +276,9 @@ dt {
 }
 .dark .type-finder:hover, .dark .type-finder:active, .dark .type-finder:focus {
     background-color: #2a091c;
-    color: #c594af;
+    color: #ffbde1;
 }
-/* mark */
+/* mark and tip data */
 .tip-data mark {
     font-size: 102%;
     padding: .05rem .4rem;
@@ -283,6 +309,13 @@ dt {
 .tip-data mark::after {
     border-left: none;
     margin-right: -.4rem;
+}
+.tip-data img {
+    max-width: 300px;
+    max-height: 300px;
+}
+.tip-data a {
+    display:inline-block;
 }
 /*calculator*/
 .calc {
@@ -349,6 +382,92 @@ legend {
     border-color:#5b4676;
     background-color:#262738;
 }
+/*dialog*/
+dialog {
+    padding: 1rem;
+    z-index:3;
+    position: fixed;
+    top:50px; bottom:50px;
+    overflow-y:auto;
+    max-width: 80%;
+    max-height: calc(100vh - 50px);
+}
+dialog h1 {
+    margin: -1rem -1rem 0 -1rem;
+    padding: .5rem 0 .6rem 1.6rem;
+    background-color:#c2b3ef;
+    color:#181b55;
+}
+.dark dialog h1 {
+    color:#c9a9ef;
+    background-color:#28125a;
+}
+.modal-background {
+    position: fixed;
+    top:0;left:0;right:0;bottom:0;
+    max-height: 100%;
+    z-index:2;
+    background-color:rgba(0,0,0,0.6);
+}
+/*skill-result dialog*/
+.skill-result details {
+    border: 1px solid #a395ef;
+    background-color: #f5e7ff;
+    padding: 0;
+    margin: .6rem 0;
+}
+.dark .skill-result details {
+    border-color: #483a58;
+    background-color: #31213c;
+}
+.skill-result summary {
+    background-color: #decbf7;
+    margin: 0;
+    padding: .4rem .6rem;
+    border-bottom: 2px solid #ce8eef;
+    font-weight: 500;
+    color:#242393;
+}
+.dark .skill-result summary {
+    background-color: #332248;
+    border-color: #7f5993;
+    color:#a6a6dd;
+}
+.skill-result summary:hover::before, .skill-result summary:active::before, .skill-result summary:hover::before {
+    content: "▶";
+    opacity: 0.5;
+    margin-right: .5rem;
+}
+.skill-result ul {
+    padding: 0;
+    margin: 0;
+}
+.skill-result li > a {
+    padding: .24rem 0 .24rem 1rem;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    color:#000;
+}
+.dark .skill-result li > a {
+    color: #bfacd9
+}
+.skill-result li a:hover, .skill-result li a:active, .skill-result li a:focus {
+    background-color: #d2bdfd;
+    font-weight: 600;
+}
+.dark .skill-result li a:hover, .dark .skill-result li a:active, .dark .skill-result li a:focus {
+    background-color: #0e081c;
+}
+/*footer*/
+footer {
+    color:#525252;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.dark footer {
+    color: #999999;
+}
 /*theme selector*/
 .theme-selector {
     z-index:1;
@@ -366,12 +485,29 @@ legend {
     background-color:#000;;
     border:2px solid #fff;
 }
-dialog {
-    z-index:3;
-}
-.modal-background {
-    position: fixed;
-    top:0;left:0;right:0;bottom:0;
-    z-index:2;
-    background-color:rgba(0,0,0,0.6);
+@media screen and (max-width:1000px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "header"
+            "menu"
+            "content"
+            "footer";
+    }
+    menu ul {
+        display: flex;
+        flex-wrap:wrap;
+        flex-direction: row;
+    }
+    menu a {
+        padding: .6rem .8rem;
+    }
+    .content ul {
+        flex-wrap: wrap;
+        line-height: 2.5rem;
+    }
+    .type-finder {
+        display: block;
+    }
 }

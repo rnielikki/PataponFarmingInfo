@@ -2,8 +2,8 @@
     "Attack":
     {
         "Default":"It gets experience while performing %Attack%. Bring your FASTEST Equipment set. If you have transfered data from Patapon 2, the Patapon 2 DLC hero mask is fastest choice (if you don't have equipment set for attack speed boost). Also check from the orange named weapons - usually one of them are fastest weapon.",
-        "Door":"Spamming iron door with lever (Multiplayer dungeon. Ice Dungeon Inosen is well known spot, but be careful while grinding Grenburr hero) by attacking might help. %DOI%",
-        "NoDoor":"Note: SPAMMING DOOR WON'T HELP."
+        "Door":"Spamming iron door with lever (Multiplayer dungeon. Ice Dungeon Inosen is well known spot, but be careful while grinding Grenburr hero) by attacking might help. <br><br>%DOI% <br><br>%VS%",
+        "NoDoor":"Note: SPAMMING DOOR WON'T HELP. %VS%"
     },
     "Status Effect":{
         "Default":"",
@@ -22,6 +22,7 @@
     },
     "__common":{
         "DOI": "If you're ready to grind enough long, Fastest way is Depth of Infinity (if you haveD xD version), try starting mission until the character is duplicated (it's random and rare).",
+        "VS": "Grinding with VS Missile mission is possible choice. In this case, it's easier to predict grinding time. Note that VS Mission takes time to retry mission.",
         "IceCannon":"Go to the first (STORY MISSION) of the snow field. Party on the snow cannon (except Myamsar).",
         "Fire":"Use so called 'grass grinding'. Use Bowmunk (charge attack) to grow grass. Use Oohoroc or Incensar (Cannogabang class skill 5 fire flake also may help) to set fire."
     }
