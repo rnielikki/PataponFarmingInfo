@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blacksmith material requirement calculator</title>
+    <script src="common.js"></script>
+    <script src="data-loader.js"></script>
+    <script src="name-updater.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Data</h1>
+    </header>
+    <section class="content">
+        <form class="equipment-select">
+            <fieldset class="class-group">
+                <legend>Equipment type</legend>
+            </fieldset>
+            <label for="input-level-from">
+                Level From
+            </label>
+        </form>
+        <form class="input" onchange="calculate()">
+            <input type="number" id="input-level-from" class="input-level-from" min="0" max="39">
+            <label for="input-level-to">
+                Level To
+            </label>
+            <input type="number" id="input-level-to" class="input-level-to" min="1" max="40">
+        </form>
+        <p class="level-error" hidden>Level range is invalid.</p>
+        <h1>Level <span class="title-level-from">?</span> → <span class="title-level-to">?</span></h1>
+        <dl>
+            <dt class="requirement-label" data-array="0">Level 1</dt>
+            <dd class="requirement" data-level="1"></dd>
+            <dt class="requirement-label" data-array="1">Level 2</dt>
+            <dd class="requirement" data-level="2"></dd>
+            <dt class="requirement-label" data-array="2">Level 3</dt>
+            <dd class="requirement" data-level="3"></dd>
+            <dt class="requirement-label" data-array="3">Level 4</dt>
+            <dd class="requirement" data-level="4"></dd>
+            <dt class="requirement-label" data-array="4">Level 5</dt>
+            <dd class="requirement" data-level="5"></dd>
+        </dl>
+    </section>
+    <footer>
+        For my Cannogabang holy blunderbuss <br>
+        PLEASE SEND ME KA-CHING INFO!
+    </footer>
+</body>
+</html>

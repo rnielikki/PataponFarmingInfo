@@ -114,7 +114,7 @@
                 "Description": "Attack element becomes crush. Prevents enemy shield evasion. ★Welcome bonus: attack power +50%.",
                 "Experience": 25,
                 "Type": "Attack",
-                "Attack Type": ["Attack"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door":false,
                 "Tip": ""
             }
@@ -246,7 +246,7 @@
                 "Level": 14,
                 "Experience": 240,
                 "Type": "Attack",
-                "Attack Type": ["Attack", "Defend"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
@@ -255,7 +255,7 @@
                 "Description": "Causes a shockwave. Superior skill to Zapper 1.",
                 "Experience": 80,
                 "Type": "Attack",
-                "Attack Type": ["Attack", "Defend"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
@@ -264,7 +264,7 @@
                 "Description": "Causes a large shockwave. Superior skill to Zapper 2.",
                 "Experience": 40,
                 "Type": "Attack",
-                "Attack Type": ["Attack", "Defend"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
@@ -273,7 +273,7 @@
                 "Description": "Causes a gigantic shockwave. Superior skill to Zapper 3.",
                 "Experience": 20,
                 "Type": "Attack",
-                "Attack Type": ["Attack", "Defend"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
@@ -282,7 +282,7 @@
                 "Description": "Causes a supreme shockwave. Superior skill to Zapper 4.",
                 "Experience": 10,
                 "Type": "Attack",
-                "Attack Type": ["Attack", "Defend"],
+                "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             }

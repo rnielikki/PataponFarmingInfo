@@ -56,8 +56,13 @@ const TipLoader = (function () {
         function replaceFrom(raw) {
             switch (data.Type) {
                 case "Attack":
-                    raw = raw.replaceAll("%Attack%", "<mark>" + data["Attack Type"]?.join(", ") + "</mark>");
+                    const attackType = data["Attack Type"];
+                    raw = raw.replaceAll("%Attack%", "<mark>" + attackType?.join(", ") + "</mark>");
                     raw += data.Door ? tips.Attack.Door : tips.Attack.NoDoor;
+                    if(attackType.indexOf("Attack") > -1 && attackType.indexOf("Defend") > -1
+                    && !data.Name.startsWith("Assault")) {
+                        raw += tips["Attack"]["Defend"];
+                    }
                     break;
                 case "Status Effect":
                     raw += tips["Status Effect"].Status[data.Status ?? "Any"];
@@ -70,7 +75,9 @@ const TipLoader = (function () {
                 if(key === "VS" && data.VS === false) {
                     raw = raw.replaceAll("%VS%", "");
                 }
-                raw = raw.replaceAll(`%${key}%`, tips.__common[key]);
+                raw = raw
+                .replaceAll(`%${key}%`, tips.__common[key])
+                .replaceAll("\n","<br>");
             }
             return raw;
         }

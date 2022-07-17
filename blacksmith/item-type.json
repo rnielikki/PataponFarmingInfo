@@ -1,0 +1,38 @@
+{
+    "equipments": {
+        "Weapon": {
+            "Tate Types": "Ore",
+            "Yari Types": "Bone",
+            "Yumi Types": "Tree",
+            "Cannogabang": "Ore"
+        },
+        "Armour": {
+            "Shield": "Tree",
+            "Greatshield": "Ore",
+            "Other": "Bone"
+        }
+    },
+    "names": {
+        "Ore": [
+            "Stone",
+            "Hard Iron",
+            "Titanum Ore",
+            "Mithril",
+            "Adamantime"
+        ],
+        "Bone": [
+            "Mudada Bone",
+            "Gashirin Bone",
+            "Dodeka Bone",
+            "Ottama Bone",
+            "Demon Bone"
+        ],
+        "Tree": [
+            "Wood Branch",
+            "Cherry Tree",
+            "Hinoki",
+            "Super Cedar",
+            "Bowtie Tree"
+        ]
+    }
+}

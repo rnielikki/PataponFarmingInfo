@@ -201,6 +201,7 @@
                 "Level": 9,
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Charge Attack"],
+                "Tip":"THIS DOES NOTHING WITH HERO MODE.",
                 "Door": true,
                 "Experience": 480
             },
@@ -209,6 +210,7 @@
                 "Description":"Three hit attack: swing-thrust-swing. Superior skill to Two Strike.",
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Charge Attack"],
+                "Tip":"THIS DOES NOTHING WITH HERO MODE.",
                 "Door": true,
                 "Experience": 240
             },
@@ -217,6 +219,7 @@
                 "Description":"Four hit attack: swing(x2) + thrust(x2). Superior skill to Three Strike.",
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Charge Attack"],
+                "Tip":"THIS DOES NOTHING WITH HERO MODE.",
                 "Door": true,
                 "Experience": 120
             },
@@ -225,6 +228,7 @@
                 "Description":"Five hit attack: swing(x2) + thrust(x3). Superior skill to Four Strike.",
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Charge Attack"],
+                "Tip":"THIS DOES NOTHING WITH HERO MODE.",
                 "Door": true,
                 "Experience": 60
             },
@@ -233,6 +237,7 @@
                 "Description":"Six hit attack: swing(x2) + thrust(x4). Superior skill to Five Strike. ★Welcome bonus: attack power +50%.",
                 "Type": "Attack",
                 "Attack Type": "Attack",
+                "Tip":"THIS DOES NOTHING WITH HERO MODE.",
                 "Door": true,
                 "Experience": 30
             }

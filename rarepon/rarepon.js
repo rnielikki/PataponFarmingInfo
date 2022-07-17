@@ -14,7 +14,7 @@ window.addEventListener("load",async function(){
     let [data, materialData] =
         await Promise.all(
             [fetch("rarepon.json").then(res => res.json()),
-            fetch(`../material-${region}.json`).then(res => res.json())]
+            fetch(`../material/material-${region}.json`).then(res => res.json())]
         )
 
     // ------ Size Info
@@ -131,7 +131,7 @@ window.addEventListener("load",async function(){
             //materialStatus is null for Ka-Ching
             function initAndFillInfoLine(materialInfoLine, label, val, key, materialStatus = null){
                 if(materialStatus !== null) {
-                    materialInfoLine.href = `../index.html?region=${region}&material=${materialStatus.group}`;
+                    materialInfoLine.href = `../material/index.html?region=${region}&material=${materialStatus.group}`;
                     materialInfoLine.target = "_blank";
                     materialInfoLine.title = `Level ${materialStatus.level} material : Click to see boss farming info`;
                     materialInfoLine.classList.add("material-type"+materialStatus.level);
