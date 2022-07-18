@@ -1,0 +1,2 @@
+const kachingCalculator = (function(){
+})();

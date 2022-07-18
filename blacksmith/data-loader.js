@@ -1,10 +1,7 @@
 let calculate;
 (async function(){
-    const [amountData] = await Promise.all([
-        getJsonFetchPromise("./material.json"),
-        new Promise((res)=>window.addEventListener("load", res)) //window load
-    ]);
-
+    await new Promise((res)=>window.addEventListener("load", res)); //window load
+    const amountData = multipliers;
     const titleLevelFrom = document.querySelector(".title-level-from");
     const titleLevelTo = document.querySelector(".title-level-to");
     const resultElements = (function(){
@@ -17,6 +14,7 @@ let calculate;
         }
         return arr;
     })();
+    const kachingResultElement = document.querySelector(".kaching");
     const levelFromField = document.querySelector("#input-level-from");
     const levelToField = document.querySelector("#input-level-to");
     const errorField = document.querySelector(".level-error");
@@ -35,16 +33,19 @@ let calculate;
         else {
             errorField.setAttribute("hidden", "");
         }
+        let kachings=0;
         let res = [0,0,0,0,0];
         for(let i=levelFrom;i<levelTo;i++) {
-            const current = amountData[i].requirements;
+            const current = amountData[i].material;
             for(let j=0;j<res.length;j++) {
                 res[j]+=current[j];
             }
+            kachings+=amountData[i].kaching;
         }
         for(let i= 0;i<resultElements.length;i++) {
             resultElements[i].textContent = res[i];
         }
+        kachingResultElement.textContent = kachings;
     }
     loadData(0, 39);
     return function() {
