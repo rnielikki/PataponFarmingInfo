@@ -1,6 +1,11 @@
-let calculate;
 (async function(){
-    await new Promise((res)=>window.addEventListener("load", res)); //window load
+    const [data] = await Promise.all([
+        getJsonFetchPromise("./data.json"),
+        new Promise((res)=>window.addEventListener("load", res)) //window load
+    ])
+    const onDataLoaded = new CustomEvent("dataLoaded", { detail:data });
+    window.dispatchEvent(onDataLoaded);
+/*
     const amountData = multipliers;
     const titleLevelFrom = document.querySelector(".title-level-from");
     const titleLevelTo = document.querySelector(".title-level-to");
@@ -51,4 +56,5 @@ let calculate;
     return function() {
             loadData(Number(levelFromField.value), Number(levelToField.value));
     }
-})().then(res => calculate = res);
+    */
+})();

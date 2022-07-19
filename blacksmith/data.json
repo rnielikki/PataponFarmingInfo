@@ -1,0 +1,185 @@
+{
+    "Sword": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 100
+    },
+    "Blade": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 120
+    },
+    "Spear": {
+        "type": "Weapon",
+        "class": "Yarida",
+        "material": "Bone",
+        "kaching": 110
+    },
+    "Pike": {
+        "type": "Weapon",
+        "class": "Yarida",
+        "material": "Bone",
+        "kaching": 140
+    },
+    "Lance": {
+        "type": "Weapon",
+        "class": "Yarida",
+        "material": "Bone",
+        "kaching": 170
+    },
+    "Arm": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 80
+    },
+    "Dagger": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 90
+    },
+    "Shiv": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 120
+    },
+    "Greatsword": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 160
+    },
+    "Greatblade": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 220
+    },
+    "Axe": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 140
+    },
+    "Club": {
+        "type": "Weapon",
+        "class": "Taterazay",
+        "material": "Ore",
+        "kaching": 150
+    },
+    "Bow": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 100
+    },
+    "Longbow": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 180
+    },
+    "Crossbow": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 130
+    },
+    "Horn": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 120
+    },
+    "Longhorn": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 160
+    },
+    "Twinhorn": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 160
+    },
+    "Staff": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 180
+    },
+    "Sceptre": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Tree",
+        "kaching": 150
+    },
+    "Cannon": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Ore",
+        "kaching": 150
+    },
+    "Blunderbuss": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Ore",
+        "kaching": 180
+    },
+    "Laser": {
+        "type": "Weapon",
+        "class": "Yumiyacha",
+        "material": "Ore",
+        "kaching": 240
+    },
+    "Helm": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 90
+    },
+    "Shield": {
+        "type": "Armour",
+        "material": "Tree",
+        "kaching": 140
+    },
+    "Greatshield": {
+        "type": "Armour",
+        "material": "Ore",
+        "kaching": 200
+    },
+    "Shoulders": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 120
+    },
+    "Cape": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 150
+    },
+    "Boots": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 150
+    },
+    "Horse": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 120
+    },
+    "Warhorse": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 220
+    },
+    "Chariot": {
+        "type": "Armour",
+        "material": "Bone",
+        "kaching": 300
+    }
+}

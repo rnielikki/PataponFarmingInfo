@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blacksmith material requirement calculator</title>
     <script src="common.js"></script>
+    <script src="legend-updater.js"></script>
     <script src="material-calculator.js"></script>
     <script src="data-loader.js"></script>
-    <script src="name-updater.js"></script>
 </head>
 <body>
     <header>
@@ -16,14 +16,20 @@
     </header>
     <section class="content">
         <form class="equipment-select">
-            <fieldset class="class-group">
+            <fieldset class="equipment-group">
                 <legend>Equipment type</legend>
+                <fieldset class="equipment-group-weapon">
+                    <legend>Weapon</legend>
+                </fieldset>
+                <fieldset class="equipment-group-armour">
+                    <legend>Armour</legend>
+                </fieldset>
             </fieldset>
             <label for="input-level-from">
                 Level From
             </label>
         </form>
-        <form class="input" onchange="calculate()">
+        <form class="input" onchange="calculator.calculate()">
             <input type="number" id="input-level-from" class="input-level-from" min="0" max="39">
             <label for="input-level-to">
                 Level To
@@ -48,8 +54,7 @@
         </dl>
     </section>
     <footer>
-        For my Cannogabang holy blunderbuss <br>
-        PLEASE SEND ME KA-CHING INFO!
+        For my Cannogabang holy blunderbuss ❤
     </footer>
 </body>
 </html>
