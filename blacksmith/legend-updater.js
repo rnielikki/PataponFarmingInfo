@@ -7,14 +7,17 @@ const updater = (function () {
         let enchantments;
         let enchantmentElements;
         let currentGroup;
+        
+        let currentEncMultiplier;
+        let currentData = null;
 
         return {
             init:init
         };
         function init(e) {
-            if (this.ready) return;
-            this.data = e.detail.data;
-            this.enchantments = e.detail.enchantments;
+            if (ready) return;
+            data = e.detail.data;
+            enchantments = e.detail.enchantments;
             const legends = {};
             const enchantmentGroup = document.querySelector(".equipment-group-enchantment");
             const weaponGroup = document.querySelector(".equipment-group-weapon");
@@ -24,9 +27,9 @@ const updater = (function () {
             const encFrag = document.createDocumentFragment();
             let firstRadio = null;
 
-            for (const eq of Object.keys(this.data)) {
+            for (const eq of Object.keys(data)) {
                 [radio, label] = getRadio(eq, "equipment", selectEquipment, null);
-                const eqData = this.data[eq];
+                const eqData = data[eq];
                 switch (eqData.type) {
                     case "Weapon":
                         if (!legends[eqData.class]) {
@@ -50,47 +53,63 @@ const updater = (function () {
             weaponGroup.appendChild(weaponFrag);
             armourGroup.appendChild(armourFrag);
             //------------------ enchantment
-            this.enchantmentElements = {};
-            for (const enc of Object.keys(this.enchantments)) {
-                const currentEncData = this.enchantments[enc];
+            currentEncMultiplier = {
+                "Weapon": 1,
+                "Armour": 1
+            };
+            enchantmentElements = {};
+            for (const enc of Object.keys(enchantments)) {
+                const currentEncData = enchantments[enc];
                 const legend = document.createElement("div");
 
-                for(const rd of Object.keys(currentEncData)) {
-                    [radio, label] = getRadio(rd, "enchantment-"+enc);
+                for (const rd of Object.keys(currentEncData)) {
+                    [radio, label] = getRadio(rd, "enchantment-"+enc, selectEnchantment);
                     radio.value = currentEncData[rd];
                     legend.appendChild(label);
                     if(rd === "None") radio.checked = true;
                 }
                 encFrag.appendChild(legend);
-                this.enchantmentElements[enc] = legend;
+                enchantmentElements[enc] = legend;
             }
             enchantmentGroup.appendChild(encFrag);
             //--- is ready
             firstRadio.checked = true;
             selectEquipment(firstRadio.value);
-            this.ready = true;
+            ready = true;
         }
         function loadEnchantment(group) {
-            if(this.currentGroup === group) return;
-            for(var elemName of Object.keys(this.enchantmentElements)){
+            if(currentGroup === group) return;
+            for(var elemName of Object.keys(enchantmentElements)){
                 if(elemName===group){
-                    this.enchantmentElements[elemName].removeAttribute("hidden");
+                    enchantmentElements[elemName].removeAttribute("hidden");
                 }
                 else{
-                    this.enchantmentElements[elemName].setAttribute("hidden","");
+                    enchantmentElements[elemName].setAttribute("hidden","");
                 }
             }
-            this.currentGroup = group;
+            currentGroup = group;
+        }
+        function selectEnchantment(value) {
+            currentEncMultiplier[currentData.type] = value;
+            sendEvent();
         }
         function selectEquipment(value) {
-            const onUpdated = new CustomEvent("eqUpdated", { detail: this.data[value] });
-            loadEnchantment(this.data[value].type);
+            currentData = data[value];
+            loadEnchantment(currentData.type);
+            sendEvent();
+        }
+        function sendEvent(){
+            const onUpdated = new CustomEvent("eqUpdated", { detail: {
+                    data: currentData,
+                    enchantment: currentEncMultiplier[currentData.type]
+                }
+            });
             window.dispatchEvent(onUpdated);
         }
         function getRadio(name, group, onchange) {
             const eqLabel = document.createElement("label");
             const radio = document.createElement("input");
-            const id = `eq-${name}`;
+            const id = `eq-${group}-${name}`;
             radio.id = id;
             eqLabel.setAttribute("for", id);
             eqLabel.textContent = name;
