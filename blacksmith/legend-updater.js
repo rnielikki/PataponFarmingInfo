@@ -109,17 +109,19 @@ const updater = (function () {
         function getRadio(name, group, onchange) {
             const eqLabel = document.createElement("label");
             const radio = document.createElement("input");
+            const span = document.createElement("span");
             const id = `eq-${group}-${name}`;
             radio.id = id;
             eqLabel.setAttribute("for", id);
-            eqLabel.textContent = name;
+            span.textContent = name;
             radio.type = "radio";
             radio.name = group;
             radio.value = name;
             if(onchange) {
                 radio.onchange = () => onchange(radio.value);
             }
-            eqLabel.prepend(radio)
+            eqLabel.appendChild(radio);
+            eqLabel.appendChild(span);
             return [radio, eqLabel];
         }
     }

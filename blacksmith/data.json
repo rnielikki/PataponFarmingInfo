@@ -181,5 +181,17 @@
         "type": "Armour",
         "material": "Bone",
         "kaching": 300
+    },
+    "Claw":{
+        "type":"Weapon",
+        "class":"Taterazay",
+        "material":"Bone",
+        "kaching":200
+    },
+    "Scythe":{
+        "type":"Weapon",
+        "class":"Taterazay",
+        "material":"Ore",
+        "kaching":200
     }
 }

@@ -56,6 +56,7 @@
                 "Type": "Command",
                 "Command": "Patapata",
                 "Description": "Gain an additional set skill slot.",
+                "Tip": "[IMPORTANT] EQUIP *FULL SET SKILL*. Otherwise it doesn't work at all!",
                 "Level": 5,
                 "Experience": 300
             },
@@ -64,6 +65,7 @@
                 "Type": "Command",
                 "Command": "Patapata",
                 "Description": "Gain 2 Set Skill slots. Superior skill to Set Skills 1.",
+                "Tip": "[IMPORTANT] EQUIP *FULL SET SKILL*. Otherwise it doesn't work at all!",
                 "Experience": 100
             },
             {
@@ -71,6 +73,7 @@
                 "Type": "Command",
                 "Command": "Patapata",
                 "Description": "Gain 3 Set Skill slots. Superior skill to Set Skills 2.",
+                "Tip": "[IMPORTANT] EQUIP *FULL SET SKILL*. Otherwise it doesn't work at all!",
                 "Experience": 50
             },
             {
@@ -78,6 +81,7 @@
                 "Type": "Command",
                 "Command": "Patapata",
                 "Description": "Gain 4 Set Skill slots. Superior skill to Set Skills 3.",
+                "Tip": "[IMPORTANT] EQUIP *FULL SET SKILL*. Otherwise it doesn't work at all!",
                 "Experience": 25
             }
         ],

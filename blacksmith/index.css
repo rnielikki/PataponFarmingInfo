@@ -1,0 +1,67 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+fieldset{
+    background-color: rgb(250,250,255);
+    color:black
+}
+fieldset > fieldset {
+    background-color: rgba(0,0,0,0.02);
+}
+fieldset label {
+    font-weight: 600;
+}
+/*radio*/
+fieldset input[type=radio]{
+    width: 0;
+    margin:0;
+    padding:0;
+}
+fieldset input[type=radio] + span{
+    padding: .4rem .8rem;
+    display: inline-block;
+    background-color: #f4f7fb;
+    border:1px solid #7f72b1;
+    color:#000;
+}
+fieldset input[type=radio]:focus + span, fieldset input[type=radio]:hover + span{
+    border-color: #c79797;
+    background-color: #fdffdf;
+    color: #b231b5;
+    text-decoration: underline;
+}
+fieldset input[type=radio]:checked + span{
+    border-color: #d3ddff;
+    background-color: #3b3285;
+    color: #fec8ff;
+    font-weight: 700;
+}
+dl {
+    display: grid;
+    grid-template-columns: 1.618fr 1fr;
+    max-width: 30rem;
+    grid-gap: 1px;
+    background-color: #606060;
+    padding: 1px;
+}
+dt {
+    background-color: #f9f1f6;
+    display: block;
+    font-weight: 500;
+}
+dd {
+    background-color: #d6e0ff;
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: 600;
+}
+dt, dd {
+    padding: 0.24rem 0.6rem;
+}
+.level-error {
+    background-color: #ffd5d5;
+    color: #5c0a0a;
+    padding: .4rem .4rem .4rem 1.2rem;
+    border: 1px solid #ef3838;
+    font-weight: 600;
+}

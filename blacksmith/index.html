@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,12 @@
     <script src="material-calculator.js"></script>
     <script src="legend-updater.js"></script>
     <script src="data-loader.js"></script>
+    <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
     <header>
-        <h1>Data</h1>
+        <h1>Blacksmith requirement info</h1>
     </header>
     <section class="content">
         <form class="equipment-select">
@@ -31,14 +34,17 @@
             </fieldset>
         </form>
         <form class="input" onchange="calculator.calculate()">
-            <label for="input-level-from">
-                Level From
-            </label>
-            <input type="number" id="input-level-from" class="input-level-from" min="0" max="39">
-            <label for="input-level-to">
-                Level To
-            </label>
-            <input type="number" id="input-level-to" class="input-level-to" min="1" max="40">
+            <fieldset>
+                <legend>Level</legend>
+                <label for="input-level-from">
+                    Level From
+                </label>
+                <input type="number" id="input-level-from" class="input-level-from" min="0" max="39">
+                <label for="input-level-to">
+                    Level To
+                </label>
+                <input type="number" id="input-level-to" class="input-level-to" min="1" max="40">
+            </fieldset>
         </form>
         <p class="level-error" hidden>Level range is invalid.</p>
         <h1>Level <span class="title-level-from">?</span> → <span class="title-level-to">?</span></h1>
@@ -61,4 +67,5 @@
         For my Cannogabang holy blunderbuss ❤
     </footer>
 </body>
+
 </html>
