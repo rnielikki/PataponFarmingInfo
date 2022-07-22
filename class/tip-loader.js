@@ -58,9 +58,10 @@ const TipLoader = (function () {
                 case "Attack":
                     const attackType = data["Attack Type"];
                     raw = raw.replaceAll("%Attack%", "<mark>" + attackType?.join(", ") + "</mark>");
+                    raw += data.Execution ? tips.Attack.Constant : tips.Attack.Speed;
                     raw += data.Door ? tips.Attack.Door : tips.Attack.NoDoor;
                     if(attackType.indexOf("Attack") > -1 && attackType.indexOf("Defend") > -1
-                    && !data.Name.startsWith("Assault")) {
+                    && !data.Stempede) {
                         raw += tips["Attack"]["Defend"];
                     }
                     break;

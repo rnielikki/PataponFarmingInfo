@@ -252,6 +252,7 @@
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
+                "Execution":1,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
             {
@@ -261,6 +262,7 @@
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
+                "Execution":1,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
             {
@@ -270,6 +272,7 @@
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
+                "Execution":1,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
             {
@@ -279,6 +282,7 @@
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
+                "Execution":1,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             },
             {
@@ -288,6 +292,7 @@
                 "Type": "Attack",
                 "Attack Type": ["Attack", "Defend", "Charge Defend"],
                 "Door": true,
+                "Execution":1,
                 "Tip": "DO NOT CHARGE ATTACK. Make sure to HIT THE GROUND. Hero mode works."
             }
         ],

@@ -1,9 +1,11 @@
 {
     "Attack":
     {
-        "Default":"It gets experience while performing %Attack%. Bring your FASTEST Equipment set. If you have transfered data from Patapon 2, the Patapon 2 DLC hero mask is fastest choice (if you don't have equipment set for attack speed boost). Also check from the orange named weapons - usually one of them are fastest weapon.\n",
+        "Default":"It gets experience while performing %Attack%.\n",
         "Door":"Spamming iron door with lever (Multiplayer dungeon. Ice Dungeon Inosen is well known spot, but be careful while grinding Grenburr hero) by attacking might help. \n\n%DOI% \n\n%VS%",
         "NoDoor":"Note: SPAMMING DOOR WON'T HELP. %VS%",
+        "Speed":" Bring your FASTEST Equipment set. If you have transfered data from Patapon 2, the Patapon 2 DLC hero mask is fastest choice (if you don't have equipment set for attack speed boost). Also check from the orange named weapons - usually one of them are fastest weapon.",
+        "Constant":"Fast attack speed won't help, because ATTACK SPEED IS CONSTANT. Be patient.",
         "Defend":"\n\nNote: Defending works only with PERFECT HIT AND while enemies are CLOSE, also it's SLOWER to grind than attacking."
     },
     "Status Effect":{
@@ -23,7 +25,7 @@
     },
     "__common":{
         "Cancel": "You can grind fast with COMMAND CANCEL. If cancel command is enabled from Patapon 3 Options, cancelling command will save time to wait the turn. For more information, click '?' next to 'Grind with Command Cancel' below.",
-        "DOI": "If you're ready to grind enough long, Fastest way is Depth of Infinity (if you haveD xD version), try starting mission until the character is duplicated (it's random and rare).",
+        "DOI": "If you're ready to grind enough long, Fastest way is Depth of Infinity (if you haveD xD version), try starting mission until the character is duplicated (it's random and rare) - if you grind while hideout is open, you can even SKIP the Class skill (except last one).",
         "VS": "Grinding with VS Missile mission is possible choice. In this case, it's easier to predict grinding time. Note that VS Mission takes time to retry mission.",
         "IceCannon":"Go to the first (STORY MISSION) of the snow field. Party on the snow cannon (except Myamsar).",
         "Fire":"Use so called 'grass grinding'. Use Bowmunk (charge attack) to grow grass. Use Oohoroc or Incensar (Cannogabang class skill 5 fire flake also may help) to set fire."

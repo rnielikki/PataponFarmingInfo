@@ -2,10 +2,11 @@
 // I know. I DON CARE! DON DODON DODON
 // Also blame Oohoroc lol
 (async function () {
-    const [tate, yari, yumi] = await Promise.all([
+    const [tate, yari, yumi, dark] = await Promise.all([
         getJsonFetchPromise("data/class-tate.json"),
         getJsonFetchPromise("data/class-yari.json"),
         getJsonFetchPromise("data/class-yumi.json"),
+        getJsonFetchPromise("data/class-dark.json"),
         new Promise((res)=>window.addEventListener("load", res)) //window load
     ]);
 
@@ -25,7 +26,8 @@
     AddToClassList(tate, "Shield");
     AddToClassList(yari, "Spear");
     AddToClassList(yumi, "Archer");
-    allClasses = { ...tate, ...yari, ...yumi };
+    AddToClassList(dark, "Dark Hero");
+    allClasses = { ...tate, ...yari, ...yumi, ...dark };
     let running = false;
 
     const onDataLoaded = new CustomEvent("dataLoaded", { detail:allClasses });

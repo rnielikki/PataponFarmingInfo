@@ -16,6 +16,14 @@
         display(calcDoi, isCommand || currentData.Type === "Attack");
         display(calcSpeed, !isCommand);
         TipLoader.loadTip(currentData);
+        
+        if(currentData.Execution && currentData.Execution > 0) {
+            calcSpeed.value = currentData.Execution;
+            calcSpeed.setAttribute("disabled", "");
+        }
+        else {
+            calcSpeed.removeAttribute("disabled");
+        }
 
         Calculate();
     }

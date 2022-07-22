@@ -511,3 +511,7 @@ footer {
         display: block;
     }
 }
+/*hidden compatibility*/
+[hidden] {
+    display:none;
+}

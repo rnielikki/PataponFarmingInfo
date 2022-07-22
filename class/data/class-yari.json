@@ -47,7 +47,9 @@
                 "Description": "Inflict extra hits with powerful stampede.",
                 "Level": 5,
                 "Type": "Attack",
+                "Stampede":true,
                 "Attack Type": ["Attack", "Defend", "Charge Attack", "Charge Defend"],
+                "Execution":1,
                 "Door": true,
                 "Experience": 240
             },
@@ -55,7 +57,9 @@
                 "Name": "Assault Hits 2",
                 "Description": "Attack with a powerful stampede. Superior skill to Assault Hits 1.",
                 "Type": "Attack",
+                "Stampede":true,
                 "Attack Type": ["Attack", "Defend", "Charge Attack", "Charge Defend"],
+                "Execution":1,
                 "Door": true,
                 "Experience": 120
             },
@@ -63,7 +67,9 @@
                 "Name": "Assault Hits 3",
                 "Description": "Attack with an extraordinary stampede. Superior skill to Assault Hits 2.",
                 "Type": "Attack",
+                "Stampede":true,
                 "Attack Type": ["Attack", "Defend", "Charge Attack", "Charge Defend"],
+                "Execution":1,
                 "Door": true,
                 "Experience": 60
             },
@@ -71,7 +77,9 @@
                 "Name": "Assault Hits 4",
                 "Description": "Attack with a supreme stampede. Superior skill to Assault Hits 3",
                 "Type": "Attack",
+                "Stampede":true,
                 "Attack Type": ["Attack", "Defend", "Charge Attack", "Charge Defend"],
+                "Execution":1,
                 "Door": true,
                 "Experience": 30
             }
@@ -86,33 +94,41 @@
                 "Name": "Leaping Spear",
                 "Description": "Leap and hurl a spear in mid-air. Activate with fever or charge attack.",
                 "Level": 7,
+                "Tip": "Yarida class skill X spears affects to executions time. Grind Yarida skill first.",
                 "Type": "Attack",
                 "Attack Type": ["Charge Attack"],
                 "Door": true,
+                "Execution":0,
                 "Experience": 320
             },
             {
                 "Name": "Spear BOOM",
                 "Description": "Small lightning bolt strikes where the spear lands. Activate with charge attack.",
+                "Tip": "Yarida class skill X spears affects to executions time. Grind Yarida skill first.",
                 "Type": "Attack",
                 "Attack Type": ["Charge Attack"],
                 "Door": true,
+                "Execution":0,
                 "Experience": 40
             },
             {
                 "Name": "Spear BA-BOOM",
                 "Description": "Strengthens lightning. Superior skill to Spear BOOM.",
+                "Tip": "Yarida class skill X spears affects to executions time. Grind Yarida skill first.",
                 "Type": "Attack",
                 "Attack Type": ["Charge Attack"],
                 "Door": true,
+                "Execution":0,
                 "Experience": 20
             },
             {
                 "Name": "Spear BA-BA-BOOM",
                 "Description": "Greatly strengthens lightning. Superior skill to Spear BA-BOOM.",
+                "Tip": "Yarida class skill X spears affects to executions time. Grind Yarida skill first.",
                 "Type": "Attack",
                 "Attack Type": ["Charge Attack"],
                 "Door": true,
+                "Execution":0,
                 "Experience": 10
             }
         ],

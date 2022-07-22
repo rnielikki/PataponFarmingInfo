@@ -520,6 +520,7 @@
                 "Door": true,
                 "Description": "Increases the attack power of lasers.",
                 "Tip": "Must equip LASER. Note: Regardless of attack speed, laser only shoots once.",
+                "Execution":1,
                 "Experience": 40
             },
             {
